@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <title>Taschenrechner</title>
+    </head>
+    <body>
+        <h1>TEst</h1>
+        <form class="grid" action="/result" method="POST">
+
+            {% if ergebnis %}
+              <center>
+                <h3 style="color: blue;" class="let_space">Ergebnis: {{ergebnis}}</h3>
+              </center> 
+  
+            {% endif %}
+             
+            <label for="fdigit">Enter your first digit:</label>
+            <input type="text" id="fdigit" name="fdigit">
+
+            <label for="sdigit">Enter your second digit:</label>
+            <input type="text" id="sdigit" name="sdigit">
+
+            <label for="operator">Enter operator:</label>
+            <input type="text" id="operator" name="operator">
+            
+            <center><input class="file_submit" type="Submit"></center>
+  
+          </form>
+    </body>
+</html>
