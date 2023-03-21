@@ -1,5 +1,15 @@
 import math
 
+def math(operator, fdigit, sdigit):
+    if operator == "+":
+        return fdigit+sdigit
+    elif operator == "-":
+        return fdigit-sdigit
+    elif operator == "*":
+        return fdigit*sdigit
+    elif operator == "/":
+        return fdigit/sdigit
+
 def addieren(zahlen):
     ergebnis = 0
     for zahl in zahlen:

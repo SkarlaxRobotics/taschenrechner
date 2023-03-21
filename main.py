@@ -1,5 +1,6 @@
 import flask
 from flask import Flask, render_template, url_for, request
+import math
 
 def rechner():
     x1 = int(input("Dein erste Zahl:"))
@@ -30,26 +31,10 @@ def result():
     second_digit = float(output["sdigit"])
     operator = str(output["operator"])
     #ergebnis = first_digit operator second_digit
-    if operator == "+":
-        ergebnis = first_digit+second_digit
-    elif operator == "-":
-        ergebnis = first_digit-second_digit
-    elif operator == "*":
-        ergebnis = first_digit*second_digit
-    elif operator == "/":
-        ergebnis = first_digit/second_digit
+    math.math()
     return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
 
 
 if __name__ == '__main__':
    app.run(port=5001, debug=True)
 
-def math(operator, fdigit, sdigit):
-    if operator == "+":
-        return fdigit+sdigit
-    elif operator == "-":
-        return fdigit-sdigit
-    elif operator == "*":
-        return fdigit*sdigit
-    elif operator == "/":
-        return fdigit/sdigit
