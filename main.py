@@ -38,7 +38,7 @@ def result():
         ergebnis = first_digit*second_digit
     elif operator == "/":
         ergebnis = first_digit/second_digit
-    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit)
+    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
 
 
 if __name__ == '__main__':
