@@ -1,0 +1,16 @@
+body { 	background-color: #404040;
+    color:#999999;
+}
+
+.container {
+        line-height:5px;
+        height: 200px;
+        text-align: center;
+}
+input { 
+    width: 5%;
+    height: 3%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    background-color: rgb(255, 255, 255); 
+}
