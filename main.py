@@ -31,7 +31,7 @@ def result():
     second_digit = float(output["sdigit"])
     operator = str(output["operator"])
     #ergebnis = first_digit operator second_digit
-    math.math()
+    math_own.math()
     return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
 
 
