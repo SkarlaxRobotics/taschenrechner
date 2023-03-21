@@ -12,6 +12,7 @@
     </head>
     <body>
         <div class="container">
+          <form class="grid" action="/result" method="POST">
 
             {% if ergebnis %}
               <center>
@@ -19,7 +20,7 @@
               </center> 
   
             {% endif %}
-
+            
             <label for="fdigit">Enter your first digit:</label>
             <input type="text" id="fdigit" name="fdigit">
 
@@ -31,6 +32,7 @@
             
             <center><input class="file_submit" type="Submit"></center>
   
+          </form>
             <p>
                 <input type='button' value='  1  ' name='1' onclick='t="1"; myFunktion()'id="1" name="1" />
                 <input type='button' value='  2  ' name='2' onclick='t="2"; myFunktion()'id="2" name="2"/>
