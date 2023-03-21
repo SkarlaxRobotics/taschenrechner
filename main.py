@@ -31,8 +31,8 @@ def result():
     second_digit = float(output["sdigit"])
     operator = str(output["operator"])
     #ergebnis = first_digit operator second_digit
-    math_own.math()
-    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
+    #math_own.math()
+    return render_template("index.html", ergebnis=math_own.math(), fdigit=first_digit, sdigit=second_digit, operator=operator)
 
 
 if __name__ == '__main__':
