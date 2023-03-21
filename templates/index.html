@@ -20,43 +20,34 @@
   
             {% endif %}
             <p>
-                <input type='button' value='  1  ' name='1' onclick='' id="1" name="1" />
-                <input type='button' value='  2  ' name='2' onclick='' id="2" name="2"/>
-                <input type='button' value='  3  ' name='3' onclick='' id="3" name="3" />
+                <input type='button' value='  1  ' name='1' onclick='t="1"; myFunktion()'id="1" name="1" />
+                <input type='button' value='  2  ' name='2' onclick='t="2"; myFunktion()'id="2" name="2"/>
+                <input type='button' value='  3  ' name='3' onclick='t="3"; myFunktion()'id="3" name="3" />
             </p>
             <p>
-                <input type='button' value='  4  ' name='4' onclick=''  id="4"name="4"/>
-                <input type='button' value='  5  ' name='5' onclick='' id="5" name="5"/>
-                <input type='button' value='  6  ' name='6' onclick='' id="6"name="6"/>
+                <input type='button' value='  4  ' name='4' onclick='t="4"; myFunktion()' id="4"name="4"/>
+                <input type='button' value='  5  ' name='5' onclick='t="5"; myFunktion()' id="5" name="5"/>
+                <input type='button' value='  6  ' name='6' onclick='t="6"; myFunktion()' id="6"name="6"/>
             </p>
             <p>
-                <input type='button' value='  7  ' name='7' onclick='' id="7" name="7"/>
-                <input type='button' value='  8  ' name='8' onclick='' id="8"name="8"/>
-                <input type='button' value='  9  ' name='9' onclick='' id="9" name="9"/>
+                <input type='button' value='  7  ' name='7' onclick='t="7"; myFunktion()' id="7" name="7"/>
+                <input type='button' value='  8  ' name='8' onclick='t="8"; myFunktion()' id="8"name="8"/>
+                <input type='button' value='  9  ' name='9' onclick='t="9"; myFunktion()' id="9" name="9"/>
             </p>
             <p>
                 <input type='button' value='clear' name='clear' onclick='' id="clear"/>
-                <input type='button' value='  0  ' name='0' onclick='myFunction()' id="0" name="0"/>
+                <input type='button' value='  0  ' name='0' onclick='t="0"; myFunktion()' id="0" name="0"/>
                 <input class="file_submit" type='button' value='enter' name='enter' onclick='i=false; myFunktion()' />
             </p>
             <script>
-              let a="1";
-              let b="2";
-              let c="3";
-              let d="4";
-              let e="5";
-              let f="6";
-              let g="7";
-              let h="8";
-              let i="9";
-              let j="0";
               var fdigit
+              var t
 
               function myFunktion() {
-                var x;
+                var x="0";
                 
                 if(i==true) {
-
+                  x= x+t;
                 }
                 else{
                   fdigit=x;
