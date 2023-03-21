@@ -43,3 +43,13 @@ def result():
 
 if __name__ == '__main__':
    app.run(port=5001, debug=True)
+
+def math(operator, fdigit, sdigit):
+    if operator == "+":
+        return fdigit+sdigit
+    elif operator == "-":
+        return fdigit-sdigit
+    elif operator == "*":
+        return fdigit*sdigit
+    elif operator == "/":
+        return fdigit/sdigit
