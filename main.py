@@ -28,7 +28,16 @@ def result():
     print(output)
     first_digit = float(output["fdigit"])
     second_digit = float(output["sdigit"])
-    ergebnis = first_digit*second_digit
+    operator = str(output["operator"])
+    #ergebnis = first_digit operator second_digit
+    if operator == "+":
+        ergebnis = first_digit+second_digit
+    elif operator == "-":
+        ergebnis = first_digit-second_digit
+    elif operator == "*":
+        ergebnis = first_digit*second_digit
+    elif operator == "/":
+        ergebnis = first_digit/second_digit
     return render_template("index.html", ergebnis=ergebnis)
 
 
