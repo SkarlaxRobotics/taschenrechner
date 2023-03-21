@@ -12,6 +12,13 @@
     </head>
     <body>
         <div class="container">
+
+            {% if ergebnis %}
+              <center>
+                <h3 style="color: blue;" class="let_space">{{fdigit}} {{operator}} {{sdigit}} : {{ergebnis}}</h3>
+              </center> 
+  
+            {% endif %}
             <p>
                 <input type='button' value='  1  ' name='1' onclick='' />
                 <input type='button' value='  2  ' name='2' onclick='' />
