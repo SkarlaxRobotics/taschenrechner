@@ -30,10 +30,10 @@ def result():
     first_digit = float(output["fdigit"])
     second_digit = float(output["sdigit"])
     operator = str(output["operator"])
-    #ergebnis = first_digit operator second_digit
+    ergebnis = first_digit*second_digit
     #math_own.math()
-    return render_template("index.html", ergebnis=math_own.math(operator, first_digit, second_digit), fdigit=first_digit, sdigit=second_digit, operator=operator)
-
+    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
+'''math_own.math(operator, first_digit, second_digit)'''
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
