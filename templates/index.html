@@ -40,18 +40,19 @@
                 <input class="file_submit" type='button' value='enter' name='enter' onclick='i=false; myFunktion()' />
             </p>
             <script>
-              var fdigit
-              var t
+              var fdigit;
+              var t;
+              var x="0";
+              let i=true;
 
               function myFunktion() {
-                var x="0";
                 
                 if(i==true) {
                   x= x+t;
                 }
                 else{
                   fdigit=x;
-                  x=0;
+                  x="0";
                   i=true
                 }
               }
