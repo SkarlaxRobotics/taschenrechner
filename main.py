@@ -32,7 +32,7 @@ def result():
     operator = str(output["operator"])
     #ergebnis = first_digit operator second_digit
     #math_own.math()
-    return render_template("index.html", ergebnis=math_own.math(), fdigit=first_digit, sdigit=second_digit, operator=operator)
+    return render_template("index.html", ergebnis=math_own.math(operator, first_digit, second_digit), fdigit=first_digit, sdigit=second_digit, operator=operator)
 
 
 if __name__ == '__main__':
