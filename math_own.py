@@ -2,7 +2,7 @@ import math
 
 rechnung = 
 zahlen, operatoren = split_rechnung(rechnung)
-print(zahlen)  # Ausgabe: [2.5, 3.7, 4.0, 1.2, 2.0]
+print(zahlen)  
 print(operatoren)
 
 
