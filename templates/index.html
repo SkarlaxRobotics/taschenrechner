@@ -30,7 +30,7 @@
                 <input type='button' value=':' id="operator" name="operator" onclick='setFormValue(" / ")'/>
             </p>
             <p>
-                <input type='button' value='4' name='4' onclick='setFormValue("4")' id="4"name="4">4</input>
+                <input type='button' value='4' name='4' onclick='setFormValue("4")' id="4"name="4"/>
                 <input type='button' value='5' name='5' onclick='setFormValue("5")' id="5" name="5"/>
                 <input type='button' value='6' name='6' onclick='setFormValue("6")' id="6"name="6"/>
                 <input type='button' value='x' id="operator" name="operator" onclick='setFormValue(" * ")'/>
@@ -51,9 +51,8 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
-              var objekt = document.getElementById("" + buttonValue)
               var digit = document.getElementById("digit");
-              digit.value = digit + buttonValue;
+              digit.value = digit + buttonValue.toString();
               document.getElementById("output").innerHTML = digit.value;
             }
             function clearFields(){
