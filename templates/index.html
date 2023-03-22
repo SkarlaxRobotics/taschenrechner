@@ -20,8 +20,8 @@
 
 
               <div class="invisible">
-              <label for="fdigit">Enter your first digit:</label>
-              <input type="text" id="fdigit" name="fdigit">
+              <label for="digit">Enter your first digit:</label>
+              <input type="text" id="digit" name="digit">
               </div>
                 <input type='button' value='1' name='1' onclick='setFormValue("1")'id="1" name="1" />
                 <input type='button' value='2' name='2' onclick='setFormValue("2")'id="2" name="2"/>
@@ -50,8 +50,8 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
-              var fdigit = document.getElementById("fdigit");
-              fdigit.value = fdigit + buttonValue.toString();
+              var digit = document.getElementById("digit");
+              digit.value = digit + buttonValue.toString();
               document.getElementById("let_space").innerHTML = buttonValue;
             }
             
