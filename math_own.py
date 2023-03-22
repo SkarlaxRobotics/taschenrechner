@@ -18,7 +18,7 @@ def split_taschenrechner(rechnung):
 
 def main(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
-    ergebnis = löse(rechnung)
+    ergebnis = loese(rechnung)
 
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
