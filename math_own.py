@@ -17,7 +17,7 @@ def split_taschenrechner(rechnung):
     return zahlen, operatoren
 def main(string):
     rechnung = string
-    zahlen, operatoren = split_rechnung(rechnung)
+    zahlen, operatoren = rechnung.split(rechnung)
     print(zahlen)  
     print(operatoren)
 
