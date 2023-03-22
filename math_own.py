@@ -1,5 +1,13 @@
 import math
 
+def split_taschenrechner(rechnung):
+    zahlen = []
+    operatoren = []
+    zahl = ""
+    for i in rechnung:
+        if i.isdigit() or i == ".":
+            zahl += i 
+        elif i in ["+","-",""]
 def main(string):
     rechnung = string
     zahlen, operatoren = split_rechnung(rechnung)
@@ -63,7 +71,7 @@ def trigonometric_function():
     cos_value = math.cos(angle_radian)
     tan_value = math.tan(angle_radian)
     
-def taschenrechner():
+'''def taschenrechner():
     operationen = ["+", "-", "*", "/", "^", "quadrat", "wurzel"]
     while True:
         operation = input("Welche Operation möchtest du durchführen? (+, -, *, /, ^, quadrat, wurzel) ")
@@ -102,4 +110,4 @@ def taschenrechner():
         if nochmal.lower() != "ja":
             break
 
-taschenrechner()
+taschenrechner()'''
