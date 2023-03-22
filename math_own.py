@@ -19,6 +19,7 @@ def split_taschenrechner(rechnung):
 def main(übertragen):
     übertragen
     split_taschenrechner(übertragen)
+    #s
     
 
 
