@@ -28,16 +28,16 @@ def result():
     output = request.form.to_dict()
     print(output)
     #ergebnis = output["num"]
-    first_digit = str(output["fdigit"])
+    digit = str(output["digit"])
     #math_own.main(first_digit)
-    print(first_digit)
+    print(digit)
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
 
 
     #math_own.math()
-    return render_template("index.html", value=first_digit)
+    return render_template("index.html", value=digit)
     
 '''math_own.math(operator, first_digit, second_digit)'''
 
