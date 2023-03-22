@@ -31,6 +31,10 @@ input:hover{
     background-color: grey;
 }
 
+
+.digit{
+    background-color: #404040;
+}
 @media only screen and (max-width: 800px) {
     .container{
         width: 95vw;
