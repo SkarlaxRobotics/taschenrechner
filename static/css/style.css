@@ -34,7 +34,7 @@ input:hover{
 
 .digit{
     background-color: #404040;
-    height: fit-content;
+    height: 20px;
     width: fit-content;
 }
 @media only screen and (max-width: 800px) {
