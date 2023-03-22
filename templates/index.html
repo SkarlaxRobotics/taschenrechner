@@ -14,34 +14,45 @@
         <div class="container">
           <form class="grid" action="/result" method="POST">
 
-            <div class="output">
-              <h3 class="let_space">{{fdigit}} {{operator}} {{sdigit}} {{ergebnis}}</h3>
-              <div id="Textfeld">{{text}}</div>
-            </div>
+            {% if ergebnis %}
+              <center>
+                <h3 style="color: blue;" class="let_space">{{fdigit}} {{operator}} {{sdigit}} : {{ergebnis}}</h3>
+                <div id="Textfeld">{{text}}</div>
+              </center> 
   
+            {% endif %}
+            
+            <label for="fdigit">Enter your first digit:</label>
+            <input type="text" id="fdigit" name="fdigit">
+
+            <label for="sdigit">Enter your second digit:</label>
+            <input type="text" id="sdigit" name="sdigit">
+
+            <label for="operator">Enter operator:</label>
+            <input type="text" id="operator" name="operator">
+            
+            <center><input class="file_submit" type="Submit"></center>
+
           <p>
-                <input type='button' value='1' name='1' onclick='t="1"; myFunktion()'id="1" name="1" />
-                <input type='button' value='2' name='2' onclick='t="2"; myFunktion()'id="2" name="2"/>
-                <input type='button' value='3' name='3' onclick='t="3"; myFunktion()'id="3" name="3" />
-                <input type='button' value='*' id="operator" name="operator" />
+                <input type='button' value='  1  ' name='1' onclick='appendToDigit(1)'id="1" name="1" />
+                <input type='button' value='  2  ' name='2' onclick='appendToDigit(2)'id="2" name="2"/>
+                <input type='button' value='  3  ' name='3' onclick='appendToDigit(3)'id="3" name="3" />
+                <input type='button' value='+' id="operator" name="operator" />
             </p>
             <p>
-                <input type='button' value='4' name='4' onclick='t="4"; myFunktion()' id="4"name="4"/>
-                <input type='button' value='5' name='5' onclick='t="5"; myFunktion()' id="5" name="5"/>
-                <input type='button' value='6' name='6' onclick='t="6"; myFunktion()' id="6"name="6"/>
-                <input type='button' value='/' id="operator" name="operator" />
+                <input type='button' value='  4  ' name='4' onclick='appendToDigit(4)' id="4"name="4"/>
+                <input type='button' value='  5  ' name='5' onclick='appendToDigit(5)' id="5" name="5"/>
+                <input type='button' value='  6  ' name='6' onclick='appendToDigit(6)' id="6"name="6"/>
             </p>
             <p>
-                <input type='button' value='7' name='7' onclick='t="7"; myFunktion()' id="7" name="7"/>
-                <input type='button' value='8' name='8' onclick='t="8"; myFunktion()' id="8"name="8"/>
-                <input type='button' value='9' name='9' onclick='t="9"; myFunktion()' id="9" name="9"/>
-                <input type='button' value='-' id="operator" name="operator" />
+                <input type='button' value='  7  ' name='7' onclick='appendToDigit(7)' id="7" name="7"/>
+                <input type='button' value='  8  ' name='8' onclick='appendToDigit(8)' id="8"name="8"/>
+                <input type='button' value='  9  ' name='9' onclick='appendToDigit(9)' id="9" name="9"/>
             </p>
             <p>
                 <input type='button' value='clear' name='clear' onclick='clearFields()' id="clear"/>
-                <input type='button' value='0' name='0' onclick='t="0"; myFunktion()' id="0" name="0"/>
+                <input type='button' value='  0  ' name='0' onclick='t="0"; myFunktion()' id="0" name="0"/>
                 <input class="file_submit" type="Submit"  value='enter' name='enter' onclick='i=false; myFunktion()' />
-                <input type='button' value='+' id="operator" name="operator" />
                 
             </p>
           </form>
@@ -55,7 +66,7 @@
               var text;
 
 
-              function appendToFirstDigit(number) {
+              function appendToDigit(number) {
                 if (firstDigit === "0") {
                   firstDigit = number.toString();
                 }
