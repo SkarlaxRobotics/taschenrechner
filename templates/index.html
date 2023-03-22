@@ -51,7 +51,7 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
-              var digit = document.getElementById("digit");
+              var digit = document.getElementById("digit").value;
               digit.value = digit + buttonValue.toString();
               document.getElementById("output").innerHTML = digit.value;
             }
