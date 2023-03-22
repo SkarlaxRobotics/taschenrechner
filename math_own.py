@@ -1,14 +1,10 @@
 import math
 
-def math(operator, fdigit, sdigit):
-    if operator == "+":
-        return fdigit+sdigit
-    elif operator == "-":
-        return fdigit-sdigit
-    elif operator == "*":
-        return fdigit*sdigit
-    elif operator == "/":
-        return fdigit/sdigit
+rechnung = 
+zahlen, operatoren = split_rechnung(rechnung)
+print(zahlen)  # Ausgabe: [2.5, 3.7, 4.0, 1.2, 2.0]
+print(operatoren)
+
 
 def addieren(zahlen):
     ergebnis = 0
