@@ -18,7 +18,7 @@
             {% if ergebnis %}
               <center>
                 <h3 style="color: blue;" class="let_space">{{fdigit}} {{operator}} {{sdigit}} : {{ergebnis}}</h3>
-                <div id="Textfeld">{{text}}</div>
+                <p id="Textfeld"></p>
               </center> 
   
             {% endif %}
@@ -63,6 +63,7 @@
             function setFormValue(buttonValue) {
                 document.getElementsByName("form_value")[0].value = buttonValue;
             }
+            document.getElementById("Textfeld").innerHTML = firstDigit, operator, secondDigit;
           </script>
             <script>
 
