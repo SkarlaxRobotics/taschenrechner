@@ -7,7 +7,14 @@ def split_taschenrechner(rechnung):
     for i in rechnung:
         if i.isdigit() or i == ".":
             zahl += i 
-        elif i in ["+","-",""]
+        elif i in ["+","-","*","/","**2"]:
+            if zahl:
+                zahlen.append(float(zahl))
+                zahl = ""
+            operatoren.append(i)
+    if zahl:
+        zahlen.append(float(zahl))
+    return zahlen, operatoren
 def main(string):
     rechnung = string
     zahlen, operatoren = split_rechnung(rechnung)
