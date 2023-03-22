@@ -32,7 +32,7 @@ def result():
         operator = str(output["operator"])
         ergebnis = first_digit*second_digit'''
     if request.method == 'POST':
-        button_value = request.form['button_value']
+        #button_value = request.form['button_value']
         form_value = request.form['form_value']
 
     #math_own.math()
