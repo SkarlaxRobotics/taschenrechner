@@ -50,7 +50,7 @@
                 <input type='button' value='  9  ' name='9' onclick='t="9"; myFunktion()' id="9" name="9"/>
             </p>
             <p>
-                <input type='button' value='clear' name='clear' onclick='' id="clear"/>
+                <input type='button' value='clear' name='clear' onclick='clearFields()' id="clear"/>
                 <input type='button' value='  0  ' name='0' onclick='t="0"; myFunktion()' id="0" name="0"/>
                 <input class="file_submit" type="Submit"  value='enter' name='enter' onclick='i=false; myFunktion()' />
                 
@@ -64,6 +64,8 @@
               var text;
 
               function myFunktion() {
+                var fdigit = document.getElementById("fdigit").value;
+                var operator = document.getElementById("operator").value;
                 text=fdigit+operator+sdigit;
                 if(i==true) {
                   x= x+t;
@@ -85,6 +87,11 @@
                   i=true;
                 
               }
+            }
+            function clearFields() {
+              document.getElementById("fdigit").value = "";
+              document.getElementById("sdigit").value = "";
+              document.getElementById("operator").value = "";
             }
             </script>
         </div>
