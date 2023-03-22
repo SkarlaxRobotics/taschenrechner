@@ -32,9 +32,9 @@ input:hover{
 }
 
 
-.digit{
+#digit{
     background-color: #404040;
-    height: 20px;
+    height: fit-content;
     width: fit-content;
 }
 @media only screen and (max-width: 800px) {
