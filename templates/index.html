@@ -51,8 +51,8 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
-              var digit = document.get("digit").value;
-              digit.value = digit + buttonValue;
+              var digit = document.get("digit");
+              digit.value = digit.value + buttonValue;
               document.getElementById("output").innerHTML = buttonValue;
             }
             function clearFields(){
