@@ -30,19 +30,16 @@ def berechne(rechnung):
         zahlen[idx] = zahlen[idx]**2
         del operatoren[idx]
 
-    while "*" in operatoren:
+    while "*"  or "/" in operatoren:
+
+        if "*":
+            
+
         idx = operatoren.index("*")
         zahlen[idx] = zahlen[idx] * zahlen[idx+1]
         del zahlen[idx+1]
         del operatoren[idx]
 
-    while "/" in operatoren:
-        idx = operatoren.index("/")
-        if zahlen[idx+1] == 0:
-            raise ZeroDivisionError("Division durch Null ist nicht definiert")
-        zahlen[idx] = zahlen[idx] / zahlen[idx+1]
-        del zahlen[idx+1]
-        del operatoren[idx]
 
     while "+" in operatoren:
         idx = operatoren.index("+")
