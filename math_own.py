@@ -20,7 +20,7 @@ def main(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     ergebnis = löse(rechnung)
 
-def löse(rechnung):
+def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     while "*" in operatoren or "/" in operatoren:
         for i, op in enumerate(operatoren):
