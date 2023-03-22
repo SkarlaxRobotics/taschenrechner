@@ -17,6 +17,8 @@
               <div class="output">
                 <h3 style="color: blue;" class="let_space">{{value}}</h3>
               </div> 
+
+
               <div class="invisible">
               <label for="fdigit">Enter your first digit:</label>
               <input type="text" id="fdigit" name="fdigit">
@@ -48,9 +50,9 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
-              var fdigit = document.getElementById("fdigit")
-              fdigit.value = fdigit + buttonValue.toString()
-              document.getElementById("Textfeld").innerHTML = firstDigit, operator, secondDigit;
+              var fdigit = document.getElementById("fdigit");
+              fdigit.value = fdigit + buttonValue.toString();
+              document.getElementById("let_space").innerHTML = buttonValue;
             }
             
           </script>
