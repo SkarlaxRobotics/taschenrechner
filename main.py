@@ -28,7 +28,7 @@ def result():
     output = request.form.to_dict()
     print(output)
     #ergebnis = output["num"]
-    first_digit = float(output["fdigit"])
+    first_digit = str(output["fdigit"])
     #math_own.main(first_digit)
     print(first_digit)
     #second_digit = float(output["sdigit"])
