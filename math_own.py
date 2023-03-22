@@ -1,9 +1,10 @@
 import math
 
-rechnung = 
-zahlen, operatoren = split_rechnung(rechnung)
-print(zahlen)  
-print(operatoren)
+def main(string):
+    rechnung = string
+    zahlen, operatoren = split_rechnung(rechnung)
+    print(zahlen)  
+    print(operatoren)
 
 
 def addieren(zahlen):
