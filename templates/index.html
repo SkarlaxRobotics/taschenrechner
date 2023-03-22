@@ -14,6 +14,7 @@
         <div class="container">
           <form class="grid" action="/result" method="POST">
 
+
             {% if ergebnis %}
               <center>
                 <h3 style="color: blue;" class="let_space">{{fdigit}} {{operator}} {{sdigit}} : {{ergebnis}}</h3>
@@ -37,6 +38,8 @@
                 <input type='button' value='  1  ' name='1' onclick='appendToDigit(1)'id="1" name="1" />
                 <input type='button' value='  2  ' name='2' onclick='appendToDigit(2)'id="2" name="2"/>
                 <input type='button' value='  3  ' name='3' onclick='appendToDigit(3)'id="3" name="3" />
+                <button type="submit" name="button_value" value="1" onclick="setFormValue('1')"/>
+
                 <input type='button' value='+' id="operator" name="operator" />
             </p>
             <p>
@@ -55,8 +58,16 @@
                 <input class="file_submit" type="Submit"  value='enter' name='enter' onclick='i=false; myFunktion()' />
                 
             </p>
+            {%while true%}
+            {%%}%
           </form>
+          <script>
+            function setFormValue(buttonValue) {
+                document.getElementsByName("form_value")[0].value = buttonValue;
+            }
+          </script>
             <script>
+
               let firstDigit = "0";
               let operator = "";
               let secondDigit = "";

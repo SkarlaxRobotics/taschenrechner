@@ -25,14 +25,19 @@ def index():
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result():
-    output = request.form.to_dict()
-    print(output)
-    first_digit = float(output["fdigit"])
-    second_digit = float(output["sdigit"])
-    operator = str(output["operator"])
-    ergebnis = first_digit*second_digit
+    '''    output = request.form.to_dict()
+        print(output)
+        first_digit = float(output["fdigit"])
+        second_digit = float(output["sdigit"])
+        operator = str(output["operator"])
+        ergebnis = first_digit*second_digit'''
+    if request.method == 'POST':
+        button_value = request.form['button_value']
+        form_value = request.form['form_value']
+
     #math_own.math()
-    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
+    #return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
+    return render_template("index.html", ergebnis=button_value)
 '''math_own.math(operator, first_digit, second_digit)'''
 
 if __name__ == '__main__':
