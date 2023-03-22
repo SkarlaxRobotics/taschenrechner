@@ -51,3 +51,55 @@ def potenz(zahlen):
     for zahl in zahlen[1:]:
         ergebnis = ergebnis ** zahl
     return ergebnis
+
+
+def trigonometric_function():
+
+    angle = float(input)
+    angle_radian = math.radians(angle)
+
+    # Berechnung der trigonometrischen Funktionen
+    sin_value = math.sin(angle_radian)
+    cos_value = math.cos(angle_radian)
+    tan_value = math.tan(angle_radian)
+    
+def taschenrechner():
+    operationen = ["+", "-", "*", "/", "^", "quadrat", "wurzel"]
+    while True:
+        operation = input("Welche Operation möchtest du durchführen? (+, -, *, /, ^, quadrat, wurzel) ")
+        if operation not in operationen:
+            print("ungültiger operator")
+            continue
+        zahlen = []
+        while True:
+            zahl = input("Gib eine Zahl ein (oder 'fertig' zum Beenden): ")
+            if zahl.lower() == "fertig":
+                break
+            try:
+                zahl = float(zahl)
+                zahlen.append(zahl)
+            except ValueError:
+                print("Das war keine gültige Zahl. Bitte versuche es erneut.")
+        if not zahlen:
+            print("Es wurden keine Zahlen eingegeben. Bitte versuche es erneut.")
+            continue
+        if operation == "+":
+            ergebnis = addieren(zahlen)
+        elif operation == "-":
+            ergebnis = subtrahieren(zahlen)
+        elif operation == "*":
+            ergebnis = multiplizieren(zahlen)
+        elif operation == "/":
+            ergebnis = dividieren(zahlen)
+        elif operation == "quadrat":
+            ergebnis = quadrieren(zahlen)
+        elif operation == "wurzel":
+            ergebnis = wurzel(zahlen)
+        elif operation == "^":
+            ergebnis = potenz(zahlen)
+        print("Das Ergebnis lautet: {}".format(ergebnis))
+        nochmal = input("Möchtest du eine weitere Operation durchführen? (ja/nein) ")
+        if nochmal.lower() != "ja":
+            break
+
+taschenrechner()
