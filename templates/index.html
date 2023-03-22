@@ -14,14 +14,11 @@
         <div class="container">
           <form class="grid" action="/result" method="POST">
 
-
-            {% if ergebnis %}
-              <center>
+              <siv class="output">
                 <h3 style="color: blue;" class="let_space">{{fdigit}} {{operator}} {{sdigit}} : {{ergebnis}}</h3>
                 <p id="Textfeld"></p>
-              </center> 
-  
-            {% endif %}
+              </div> 
+
             
             <label for="fdigit">Enter your first digit:</label>
             <input type="text" id="fdigit" name="fdigit">
