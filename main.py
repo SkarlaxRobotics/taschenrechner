@@ -27,10 +27,11 @@ def index():
 def result():
     output = request.form.to_dict()
     print(output)
-    first_digit = float(output["fdigit"])
-    second_digit = float(output["sdigit"])
-    operator = str(output["operator"])
-    ergebnis = first_digit*second_digit
+    ergebnis = output["myInputField"]
+    #first_digit = float(output["fdigit"])
+    #second_digit = float(output["sdigit"])
+    #operator = str(output["operator"])
+    #ergebnis = first_digit*second_digit
 
 
     #math_own.math()

@@ -12,13 +12,13 @@
     </head>
     <body>
         <div class="container">
-          <form class="grid" action="/result" method="POST">
+          <form class="grid" action="/result" method="POST" id="main_form">
 
               <div class="output">
                 <h3 style="color: blue;" class="let_space">{{fdigit}} {{operator}} {{sdigit}} : {{ergebnis}}</h3>
               </div> 
           
-                <input type='button' value='1' name='1' onclick='appendToDigit(1)'id="1" name="1" />
+                <input type='button' value='1' name='1' onclick='setFormValue(1)'id="1" name="1" />
                 <input type='button' value='2' name='2' onclick='appendToDigit(2)'id="2" name="2"/>
                 <input type='button' value='3' name='3' onclick='appendToDigit(3)'id="3" name="3" />
                 <input type='button' value=':' id="operator" name="operator" />
@@ -45,7 +45,8 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
-                document.getElementsByName("form_value")[0].value = buttonValue;
+              var main_form = document.getElementById("main_form");
+              main_form.elements["myInputField"].value = buttonValue;
             }
             document.getElementById("Textfeld").innerHTML = firstDigit, operator, secondDigit;
           </script>
