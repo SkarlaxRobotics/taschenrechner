@@ -53,32 +53,6 @@
             }
             document.getElementById("Textfeld").innerHTML = firstDigit, operator, secondDigit;
           </script>
-            <script>
-
-              let firstDigit = "0";
-              let operator = "";
-              let secondDigit = "";
-              var t;
-              var x="0";
-              let i=true;
-              var text;
-
-
-              function appendToDigit(number) {
-                if (firstDigit === "0") {
-                  firstDigit = number.toString();
-                }
-                else {
-                  firstDigit += number.toString();
-                }
-                document.getElementById("first-digit").value = firstDigit;
-              }
-              function clearFields() {
-                document.getElementById("fdigit").value = "";
-                document.getElementById("sdigit").value = "";
-                document.getElementById("operator").value = "";
-              }
-            </script>
         </div>
     </body>
 </html>
