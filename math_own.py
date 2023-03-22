@@ -30,9 +30,12 @@ def multiplizieren(zahlen):
 
 def dividieren(zahlen):
     ergebnis = zahlen[0]
-    for i in range(1, len(zahlen)):
-        ergebnis /= zahlen[i]
-    return ergebnis
+    if zahlen == 0:
+        print('matheatischer fehler')
+    else:
+        for i in range(1, len(zahlen)):
+            ergebnis /= zahlen[i]
+        return ergebnis
 
 def quadrieren(zahlen):
     ergebnis = [] #später gucken ob klappt
@@ -96,7 +99,7 @@ def taschenrechner():
         elif operation == "wurzel":
             ergebnis = wurzel(zahlen)
         elif operation == "^":
-            ergebnis = potenz(zahlen)
+            ergebnis = potenz(zahlen) 
         print("Das Ergebnis lautet: {}".format(ergebnis))
         nochmal = input("Möchtest du eine weitere Operation durchführen? (ja/nein) ")
         if nochmal.lower() != "ja":
