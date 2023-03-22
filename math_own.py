@@ -18,15 +18,30 @@ def split_taschenrechner(rechnung):
 
 def main(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
-    for o in range(len(operatoren)):
-        if operatoren[o] == '+':
-            addieren(zahlen)
-        if operatoren[o] == '-':
-            subtrahieren(zahlen)
-        if operatoren[o] == '/':
-            dividieren(zahlen)
-        if operatoren[o] == '*':
-            multiplizieren(zahlen)
+    ergebnis = löse(rechnung)
+
+def löse(rechnung):
+    zahlen, operatoren = split_taschenrechner(rechnung)
+    while "*" in operatoren or "/" in operatoren:
+        for i, op in enumerate(operatoren):
+            if op == "*":
+                zahlen[i] = zahlen[i] * zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
+            elif op == "/":
+                zahlen[i] = zahlen[i] / zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
+    while len(operatoren) > 0:
+        op = operatoren.pop(0)
+        zahl = zahlen.pop(0)
+        if op == "+":
+            zahlen[0] += zahl
+        elif op == "-":
+            zahlen[0] -= zahl
+    return zahlen[0]
 
 
 def addieren(zahlen):
