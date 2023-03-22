@@ -34,7 +34,7 @@ def result():
 
 
     #math_own.math()
-    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
+    return render_template("index.html", value=ergebnis)
     
 '''math_own.math(operator, first_digit, second_digit)'''
 
