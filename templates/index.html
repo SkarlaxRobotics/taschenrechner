@@ -52,7 +52,7 @@
           <script>
             function setFormValue(buttonValue) {
               var objekt = document.getElementById("" + buttonValue)
-              var digit = document.getElementById("digit");
+              var digit = document.getElementById("digit").innerHTML;
               digit.value = digit + objekt.value.toString();
               document.getElementById("output").innerHTML = digit.value;
             }
