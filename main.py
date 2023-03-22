@@ -1,6 +1,6 @@
 import flask
 from flask import Flask, render_template, url_for, request
-#import math_own
+import math_own
 
 def rechner():
     x1 = int(input("Dein erste Zahl:"))
@@ -29,6 +29,7 @@ def result():
     print(output)
     #ergebnis = output["num"]
     first_digit = float(output["fdigit"])
+    math_own.main(first_digit)
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
