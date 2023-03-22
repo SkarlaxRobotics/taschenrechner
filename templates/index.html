@@ -34,20 +34,20 @@
             <center><input class="file_submit" type="Submit"></center>
 
           <p>
-                <input type='button' value='  1  ' name='1' onclick='t="1"; myFunktion()'id="1" name="1" />
-                <input type='button' value='  2  ' name='2' onclick='t="2"; myFunktion()'id="2" name="2"/>
-                <input type='button' value='  3  ' name='3' onclick='t="3"; myFunktion()'id="3" name="3" />
+                <input type='button' value='  1  ' name='1' onclick='appendToFirstDigit(1)'id="1" name="1" />
+                <input type='button' value='  2  ' name='2' onclick='appendToFirstDigit(2)'id="2" name="2"/>
+                <input type='button' value='  3  ' name='3' onclick='appendToFirstDigit(3)'id="3" name="3" />
                 <input type='button' value='+' id="operator" name="operator" />
             </p>
             <p>
-                <input type='button' value='  4  ' name='4' onclick='t="4"; myFunktion()' id="4"name="4"/>
-                <input type='button' value='  5  ' name='5' onclick='t="5"; myFunktion()' id="5" name="5"/>
-                <input type='button' value='  6  ' name='6' onclick='t="6"; myFunktion()' id="6"name="6"/>
+                <input type='button' value='  4  ' name='4' onclick='appendToFirstDigit(4)' id="4"name="4"/>
+                <input type='button' value='  5  ' name='5' onclick='appendToFirstDigit(5)' id="5" name="5"/>
+                <input type='button' value='  6  ' name='6' onclick='appendToFirstDigit(6)' id="6"name="6"/>
             </p>
             <p>
-                <input type='button' value='  7  ' name='7' onclick='t="7"; myFunktion()' id="7" name="7"/>
-                <input type='button' value='  8  ' name='8' onclick='t="8"; myFunktion()' id="8"name="8"/>
-                <input type='button' value='  9  ' name='9' onclick='t="9"; myFunktion()' id="9" name="9"/>
+                <input type='button' value='  7  ' name='7' onclick='appendToFirstDigit(7)' id="7" name="7"/>
+                <input type='button' value='  8  ' name='8' onclick='appendToFirstDigit(8)' id="8"name="8"/>
+                <input type='button' value='  9  ' name='9' onclick='appendToFirstDigit(9)' id="9" name="9"/>
             </p>
             <p>
                 <input type='button' value='clear' name='clear' onclick='clearFields()' id="clear"/>
@@ -57,15 +57,25 @@
             </p>
           </form>
             <script>
-              var fdigit;
+              let firstDigit = "0";
+              let operator = "";
+              let secondDigit = "";
               var t;
               var x="0";
               let i=true;
               var text;
 
+
+              function appendToFirstDigit(number) {
+                if (firstDigit === "0") {
+                  firstDigit = number.toString();
+                }
+                else {
+                  firstDigit += number.toString();
+                }
+                document.getElementById("first-digit").value = firstDigit;
+              }
               function myFunktion() {
-                var fdigit = document.getElementById("fdigit").value;
-                var operator = document.getElementById("operator").value;
                 text=fdigit+operator+sdigit;
                 if(i==true) {
                   x= x+t;
@@ -85,14 +95,13 @@
                   sdigit=x;
                   x="0";
                   i=true;
-                
+                }
               }
-            }
-            function clearFields() {
-              document.getElementById("fdigit").value = "";
-              document.getElementById("sdigit").value = "";
-              document.getElementById("operator").value = "";
-            }
+              function clearFields() {
+                document.getElementById("fdigit").value = "";
+                document.getElementById("sdigit").value = "";
+                document.getElementById("operator").value = "";
+              }
             </script>
         </div>
     </body>
