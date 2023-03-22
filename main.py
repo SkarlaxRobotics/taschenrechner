@@ -27,15 +27,15 @@ def index():
 def result():
     output = request.form.to_dict()
     print(output)
-    ergebnis = output["num"]
-    #first_digit = float(output["fdigit"])
+    #ergebnis = output["num"]
+    first_digit = float(output["fdigit"])
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
 
 
     #math_own.math()
-    return render_template("index.html", value=ergebnis)
+    return render_template("index.html", value=first_digit)
     
 '''math_own.math(operator, first_digit, second_digit)'''
 
