@@ -15,13 +15,14 @@
           <form class="grid" action="/result" method="POST" id="main_form">
 
               <div class="output">
-                <h3 style="color: blue;" class="let_space">{{value}}</h3>
+                <h3 style="color: blue;" id="output" class="let_space">{{value}}</h3>
               </div> 
 
 
               <div class="invisible">
-              <label for="digit">Enter your first digit:</label>
+
               <input type="text" id="digit" name="digit">
+
               </div>
                 <input type='button' value='1' name='1' onclick='setFormValue("1")'id="1" name="1" />
                 <input type='button' value='2' name='2' onclick='setFormValue("2")'id="2" name="2"/>
@@ -41,7 +42,7 @@
                 <input type='button' value='-' id="operator" name="operator" onclick='setFormValue(" - ")'/>
             </p>
             <p>
-                <input type='button' value='clear' name='C' onclick='clearFields()' id="clear"/>
+                <input type='button' value='C' name='C' onclick='clearFields()' id="C"/>
                 <input type='button' value='0' name='0' onclick='setFormValue("0")' id="0" name="0"/>
                 <input class="file_submit" type="Submit"  value='=' name='enter'/>
                 <input type='button' value='+' id="operator" name="operator" onclick='setFormValue(" + ")'/>
@@ -50,9 +51,10 @@
           </form>
           <script>
             function setFormValue(buttonValue) {
+              var objekt = document.getElementById("" + buttonValue)
               var digit = document.getElementById("digit");
-              digit.value = digit + buttonValue.toString();
-              document.getElementById("let_space").innerHTML = buttonValue;
+              digit.value = digit + objekt.value.toString();
+              document.getElementById("output").innerHTML = buttonValue;
             }
             
           </script>
