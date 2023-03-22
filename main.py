@@ -1,6 +1,6 @@
 import flask
 from flask import Flask, render_template, url_for, request
-import math_own
+#import math_own
 
 def rechner():
     x1 = int(input("Dein erste Zahl:"))
