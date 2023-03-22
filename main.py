@@ -34,8 +34,8 @@ def result():
 
 
     #math_own.math()
-    #return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
-    return render_template("index.html", ergebnis=button_value)
+    return render_template("index.html", ergebnis=ergebnis, fdigit=first_digit, sdigit=second_digit, operator=operator)
+    
 '''math_own.math(operator, first_digit, second_digit)'''
 
 if __name__ == '__main__':
