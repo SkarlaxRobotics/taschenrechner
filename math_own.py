@@ -65,7 +65,7 @@ def multiplizieren(zahlen):
 def dividieren(zahlen):
     ergebnis = zahlen[0]
     if zahlen == 0:
-        print('matheatischer fehler')
+        print('mathematischer fehler')
     else:
         for i in range(1, len(zahlen)):
             ergebnis /= zahlen[i]
