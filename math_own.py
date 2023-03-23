@@ -50,36 +50,6 @@ def loese(rechnung):
                 zahlen[0]=zahlen[0]*-1
     return zahlen[0]
 
-
-def addieren(zahlen):
-    ergebnis = 0
-    for zahl in zahlen:
-        ergebnis += zahl
-    return ergebnis
-
-def subtrahieren(zahlen):
-    ergebnis = zahlen[0]
-    for i in range (1, len(zahlen)):
-        ergebnis -= zahlen[1]
-    # ergebnis=ergebnis*-1
-    return ergebnis
-
-def multiplizieren(zahlen):
-    ergebnis = 1
-    for zahl in zahlen:
-        ergebnis *= zahl
-    return ergebnis
-
-def dividieren(zahlen):    
-    ergebnis = zahlen[0]
-    for i in range(1, len(zahlen)):
-        if zahlen[i] == 0:
-            print("Mathematischer Fehler")
-        return None
-    else:
-        ergebnis /= zahlen[i]
-    return ergebnis
-
 def quadrieren(zahlen):
     ergebnis = [] #später gucken ob klappt
     for zahl in zahlen:
