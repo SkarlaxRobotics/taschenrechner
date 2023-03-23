@@ -1,29 +1,22 @@
 import math
-
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    for i,c in enumerate (rechnung):
-        if c.isdigit() or c == ".":
-            zahl += c
-        elif c == "-" and (i == 0 or not rechnung[i-1].isdigit()):
-            zahl = "-"
+    for i in rechnung:
+        if i.isdigit() or i == ".":
+            zahl += i 
         elif i in ["+","-","*","/","**2"]:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
-            operatoren.append(c)
+            operatoren.append(i)
     if zahl:
         zahlen.append(float(zahl))
-    # print(zahlen, operatoren)
     return zahlen, operatoren
-
 def main(rechnung):
     ergebnis = loese(rechnung)
     return ergebnis
-
-
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     while "*" in operatoren or "/" in operatoren:
@@ -52,32 +45,3 @@ def loese(rechnung):
             else:
                 zahlen[0]=zahlen[0]*-1
     return zahlen[0]
-
-def quadrieren(zahlen):
-    ergebnis = [] #später gucken ob klappt
-    for zahl in zahlen:
-        ergebnis.append(zahl**2)
-    return ergebnis
-
-def wurzel(zahlen):
-    ergebnis = [] #""""""
-    for zahl in zahlen:
-        ergebnis.append(math.sqrt(zahl))
-    return ergebnis
-
-def potenz(zahlen):
-    result = zahlen[0]
-    for zahl in zahlen[1:]:
-        ergebnis = ergebnis ** zahl
-    return ergebnis
-
-
-def trigonometric_function():
-
-    angle = float(input)
-    angle_radian = math.radians(angle)
-
-    # Berechnung der trigonometrischen Funktionen
-    sin_value = math.sin(angle_radian)
-    cos_value = math.cos(angle_radian)
-    tan_value = math.tan(angle_radian)
