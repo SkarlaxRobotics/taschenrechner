@@ -73,7 +73,7 @@
         </div>
         <div class="history-container">
               <ul>
-                {% for item in history[1:] %}
+                {% for item in reversed(history) %}
                 <li>{{item[1]}} = {{item[2]}}</li>
                 {% endfor %}
               </ul>
