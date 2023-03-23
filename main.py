@@ -26,6 +26,7 @@ conn = sqlite3.connect('history_calc.db')
 cursor = conn.cursor()
 cursor.execute('SELECT * FROM history WHERE number="1"')
 no_entry_yet = cursor.fetchall()
+print("no_entry_yet", no_entry_yet)
 if no_entry_yet:
     cursor.execute('INSERT INTO history VALUES (1, "2 * 2", "25")')
     conn.commit()
