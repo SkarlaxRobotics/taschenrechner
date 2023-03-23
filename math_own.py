@@ -42,6 +42,7 @@ def loese(rechnung):
             zahlen[0] += zahl
         elif op == "-":
             zahlen[0] -= zahl
+            zahlen=zahlen*-1
     return zahlen[0]
 
 
