@@ -16,7 +16,7 @@ result = cursor.fetchone()
 if result:
     print("Datenbank existiert bereits. fahre fort")
 else:
-    cursor.execute('CREATE TABLE {table_name}(number INTEGER, rechnung TEXT, ergebnis TEXT)')
+    cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
     print("Database table wurde erstellt")
 
 
