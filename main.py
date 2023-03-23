@@ -64,7 +64,7 @@ def result():
     conn.commit()
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchone()
-    print(ausgabe)
+    print("Aktueller Verlauf:", ausgabe)
 
     cursor.close()
     conn.close()
