@@ -31,6 +31,8 @@ def loese(rechnung):
                 del operatoren[i]
                 break
             elif op == "/":
+                if zahlen[i+1] == 0:
+                    return "Mathematischer Fehler"
                 zahlen[i] = zahlen[i] / zahlen[i+1]
                 del zahlen[i+1]
                 del operatoren[i]
