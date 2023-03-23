@@ -42,10 +42,13 @@ def index():
     conn = sqlite3.connect('history_calc.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM history')
-    ausgabe = cursor.fetchall()
-    return render_template("index.html", history=ausgabe)
+    ausgabe = cursor.fetchall() 
     cursor.close()
     conn.close()
+    reversed_ausgabe = reversed(ausgabe)
+
+    return render_template("index.html", history=reversed_ausgabe)
+
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result():
