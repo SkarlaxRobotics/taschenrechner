@@ -22,22 +22,29 @@ import re
 #     return zahlen, operatoren
 
 def regu(rechnung):
-
+    # Definieren des regulären Ausdrucks
     regex = r"([a-zA-Z])|(-?\d+(\.\d+)?)|([+\-*/^()])|([^\d])"
 
-    test_str = rechnung
+    # Anwenden des regulären Ausdrucks auf die Rechnung
+    matches = re.finditer(regex, rechnung)
 
-    matches = re.finditer(regex, test_str, re.MULTILINE)
+    # Listen für Zahlen und Operatoren
+    zahlen = []
+    operatoren = []
 
-    for matchNum, match in enumerate(matches, start=1):
-        
-        print ("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum = matchNum, start = match.start(), end = match.end(), match = match.group()))
-        
-        for groupNum in range(0, len(match.groups())):
-            groupNum = groupNum + 1
-            
-            print ("Group {groupNum} found at {start}-{end}: {group}".format(groupNum = groupNum, start = match.start(groupNum), end = match.end(groupNum), group = match.group(groupNum)))
+    # Durchlaufen aller gefundenen Matches und Gruppen und Speichern der Tokens in den entsprechenden Listen
+    for match in matches:
+        for group in range(1, 5):
+            token = match.group(group)
+            if token:
+                if token.isnumeric() or '.' in token:
+                    zahlen.append(token)
+                else:
+                    operatoren.append(token)
 
+    # Ausgabe der Zahlen und Operatoren
+    print("Zahlen:", zahlen)
+    print("Operatoren:", operatoren)
 
 def split_taschenrechner(rechnung):
     zahlen = []
