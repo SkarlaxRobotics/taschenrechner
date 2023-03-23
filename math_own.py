@@ -16,6 +16,7 @@ def split_taschenrechner(rechnung):
             operatoren.append(c)
     if zahl:
         zahlen.append(float(zahl))
+    # print(zahlen, operatoren)
     return zahlen, operatoren
 
 def main(rechnung):
