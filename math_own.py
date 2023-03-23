@@ -1,43 +1,43 @@
 import math
-# def split_taschenrechner(rechnung):
-#     zahlen = []
-#     operatoren = []
-#     zahl = ""
-#     o = ["+","-","*","/","^"]
-#     for i in rechnung:
-#         if i.isdigit() or i == ".":
-#             zahl += i 
-#         elif i == "-"  and rechnung[i-1] in o:
-#             zahl += "-"
-        
-#         elif i in o:
-#             if zahl:
-#                 zahlen.append(float(zahl))
-#                 zahl = ""
-#             operatoren.append(i)
-#     if zahl:
-#         zahlen.append(float(zahl))
-#     print(zahlen, operatoren)
-#     return zahlen, operatoren
-
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    x="%s" % math.pi
+    o = ["+","-","*","/","^"]
     for i in rechnung:
-        if i.isdigit() or i == "." :
+        if i.isdigit() or i == ".":
             zahl += i 
-        elif i == "n":
-            zahl += x
-        elif i in ["+","-","*","/","^"]:
+        elif i == "-"  and rechnung[i-1] in o:
+            zahl += "-"
+        
+        elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
             operatoren.append(i)
     if zahl:
         zahlen.append(float(zahl))
+    print(zahlen, operatoren)
     return zahlen, operatoren
+
+# def split_taschenrechner(rechnung):
+#     zahlen = []
+#     operatoren = []
+#     zahl = ""
+#     x="%s" % math.pi
+#     for i in rechnung:
+#         if i.isdigit() or i == "." :
+#             zahl += i 
+#         elif i == "n":
+#             zahl += x
+#         elif i in ["+","-","*","/","^"]:
+#             if zahl:
+#                 zahlen.append(float(zahl))
+#                 zahl = ""
+#             operatoren.append(i)
+#     if zahl:
+#         zahlen.append(float(zahl))
+#     return zahlen, operatoren
 
 def main(rechnung):
     ergebnis = loese(rechnung)
