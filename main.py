@@ -60,7 +60,7 @@ def result():
     cursor.execute('SELECT MAX(number) FROM history')
     get_max_number = cursor.fetchall()
     print(get_max_number[0])
-    max_number = int(get_max_number[0]) if get_max_number[0] is not None else 0
+    max_number = int(sum(get_max_number[0])) if get_max_number[0] is not None else 0
     
     # verlauf erstellen
     cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(max_number+1), digit, ergebnis))
