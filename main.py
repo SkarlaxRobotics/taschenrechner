@@ -19,7 +19,7 @@ else:
     cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
     print("Database table wurde erstellt")
 
-
+cursor.execute('INSERT INTO history VALUES (1, "2 * 2", "25")')
 
 
 
