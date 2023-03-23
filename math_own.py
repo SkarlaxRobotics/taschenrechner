@@ -1,22 +1,40 @@
 import math
+# def split_taschenrechner(rechnung):
+#     zahlen = []
+#     operatoren = []
+#     zahl = ""
+#     o = ["+","-","*","/","^"]
+#     for i in rechnung:
+#         if i.isdigit() or i == ".":
+#             zahl += i 
+#         elif i == "-"  and i-1 in o:
+#             zahl[i]= zahl[i] * -1
+#         elif i in o:
+#             if zahl:
+#                 zahlen.append(float(zahl))
+#                 zahl = ""
+#             operatoren.append(i)
+#     if zahl:
+#         zahlen.append(float(zahl))
+#     print(zahlen, operatoren)
+#     return zahlen, operatoren
+
+import math
+
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    o = ["+","-","*","/","^"]
     for i in rechnung:
         if i.isdigit() or i == ".":
             zahl += i 
-        elif i == "-"  and i-1 in o:
-            zahl[i]= zahl[i] * -1
-        elif i in o:
+        elif i in ["+","-","*","/","^"]:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
             operatoren.append(i)
     if zahl:
         zahlen.append(float(zahl))
-    print(zahlen, operatoren)
     return zahlen, operatoren
 
 def main(rechnung):
