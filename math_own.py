@@ -8,7 +8,7 @@ import math
 #         if i.isdigit() or i == ".":
 #             zahl += i 
 #         elif i == "-"  and i-1 in o:
-#             zahl[i]= zahl[i] * -1
+#             zahl += "-"
 #         elif i in o:
 #             if zahl:
 #                 zahlen.append(float(zahl))
