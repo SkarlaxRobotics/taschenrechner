@@ -46,29 +46,32 @@ def index():
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result():
+    # sqlite connection
     conn = sqlite3.connect('history_calc.db')
     cursor = conn.cursor()
+    
     output = request.form.to_dict()
     print(output)
-    #ergebnis = output["num"]
     digit = str(output["digit"])
     ergebnis = math_own.main(digit)
     print(digit)
+    
+    # getting max previous number
     cursor.execute('SELECT MAX(number) FROM history')
     get_max_number = cursor.fetchall()
     print(get_max_number[0])
     max_number = int(get_max_number[0]) if get_max_number[0] is not None else 0
+    
+    # verlauf erstellen
     cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(max_number+1), digit, ergebnis))
     conn.commit()
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchone()
     print(ausgabe)
-    #second_digit = float(output["sdigit"])
-    #operator = str(output["operator"])
-    #ergebnis = first_digit*second_digit
+
     cursor.close()
     conn.close()
-    #math_own.math()
+    # ausgabe
     return render_template("index.html", value=ergebnis)
     
 '''math_own.math(operator, first_digit, second_digit)'''
@@ -76,4 +79,9 @@ def result():
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
 
+def get_max_number():
+    cursor.execute('SELECT MAX(number) FROM history')
+    return cursor.fetchone()
+
+max_number = int(get_max_number()[0]) if get_max_number() and get_max_number()[0] is not None else 0
 
