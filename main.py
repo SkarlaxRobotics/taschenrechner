@@ -69,7 +69,7 @@ def result():
     cursor.close()
     conn.close()
     # ausgabe
-    return render_template("index.html", value=ergebnis, historyone=int(2434343434))
+    return render_template("index.html", value=ergebnis, historyone=[23, 323, 3232, 343, 566, 237, 5453,])
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
