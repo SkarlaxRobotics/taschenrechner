@@ -24,27 +24,14 @@ conn.close()
 
 conn = sqlite3.connect('history_calc.db')
 cursor = conn.cursor()
-
-cursor.execute('INSERT INTO history VALUES (1, "2 * 2", "25")')
-conn.commit()
+cursor.execute('SELECT * FROM history WHERE number="1"')
+no_entry_yet = cursor.fetchall()
+if no_entry_yet:
+    cursor.execute('INSERT INTO history VALUES (1, "2 * 2", "25")')
+    conn.commit()
 
 cursor.close()
 conn.close()
-
-
-def rechner():
-    x1 = int(input("Dein erste Zahl:"))
-    operator = input("Rechenoperator:" )
-    x2 = int(input("Deine zweite Zahl:"))
-    if operator == "geteilt":
-        print(x1/x2)
-    if operator == "mal":
-        print(x1*x2)
-    if operator == "minus":
-        print(x1-x2)
-    if operator == "plus":
-        print(x1+x2)
-
 
 app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
