@@ -55,9 +55,10 @@ def result():
     ergebnis = math_own.main(digit)
     print(digit)
     cursor.execute('SELECT MAX(number) FROM history')
-    letzte_number = cursor.fetchall()
-    print(letzte_number[0])
-    cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(letzte_number[0]+1), digit, ergebnis))
+    get_max_number = cursor.fetchall()
+    print(get_max_number[0])
+    max_number = int(result[0]) if result[0] is not None else 0
+    cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(max_number+1), digit, ergebnis))
     conn.commit()
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchone()
