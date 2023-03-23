@@ -38,7 +38,9 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 
 def index():
-    return render_template("index.html")
+    cursor.execute('SELECT * FROM history')
+    ausgabe = cursor.fetchall()
+    return render_template("index.html", history=ausgabe)
 
 
 @app.route("/result",methods = ['POST', 'GET'])
