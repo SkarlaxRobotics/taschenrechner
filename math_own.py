@@ -13,10 +13,7 @@ def split_taschenrechner(rechnung):
             operatoren.append(i)
     if zahl:
         zahlen.append(float(zahl))
-<<<<<<< HEAD
     print(zahlen, operatoren)
-=======
->>>>>>> 51f15d0857af9d50f1d5b8437244a434599eeb2a
     return zahlen, operatoren
 def main(rechnung):
     ergebnis = loese(rechnung)
