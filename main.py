@@ -18,9 +18,18 @@ if result:
 else:
     cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
     print("Database table wurde erstellt")
+cursor.close()
+conn.close()
+
+
+conn = sqlite3.connect('history_calc.db')
+cursor = conn.cursor()
 
 cursor.execute('INSERT INTO history VALUES (1, "2 * 2", "25")')
+conn.commit()
 
+cursor.close()
+conn.close()
 
 
 def rechner():
@@ -73,8 +82,6 @@ def result():
     conn.close()
     # ausgabe
     return render_template("index.html", value=ergebnis)
-    
-'''math_own.math(operator, first_digit, second_digit)'''
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
