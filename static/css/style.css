@@ -3,6 +3,7 @@ body { 	background-color: #404040;
 }
 
 .container {
+        display: inline-block;
         line-height:5px;
         height: fit-content;
         text-align: center;
@@ -11,6 +12,7 @@ body { 	background-color: #404040;
         border-radius: 20px;
 }
 .history-container{
+    display: inline-block;
     line-height:5px;
     height: fit-content;
     text-align: center;
