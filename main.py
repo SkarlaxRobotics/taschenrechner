@@ -63,7 +63,7 @@ def result():
     cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(max_number+1), digit, ergebnis))
     conn.commit()
     cursor.execute('SELECT * FROM history')
-    ausgabe = cursor.fetchone()
+    ausgabe = cursor.fetchall()
     print("Aktueller Verlauf:", ausgabe)
 
     cursor.close()
