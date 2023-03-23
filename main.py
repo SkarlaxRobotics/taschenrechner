@@ -1,6 +1,16 @@
 import flask
 from flask import Flask, render_template, url_for, request
 import math_own
+import sqlite3
+
+# Datenbank-Integration
+conn = sqlite3.connect('database_name.db')
+cursor = conn.cursor()
+cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
+
+
+
+
 
 def rechner():
     x1 = int(input("Dein erste Zahl:"))
@@ -31,6 +41,7 @@ def result():
     digit = str(output["digit"])
     ergebnis = math_own.main(digit)
     print(digit)
+    cursor.execute('INSERT INTO history VALUES (1, {digit}, {ergebnis})')
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
