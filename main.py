@@ -54,18 +54,18 @@ def result():
     digit = str(output["digit"])
     ergebnis = math_own.main(digit)
     print(digit)
-    cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(1), digit, ergebnis))
-    cursor.execute('SELECT * FROM history')
+    cursor.execute('SELECT MAX(number) FROM history')
+    letzte_number = cursor.fetchone()
+    cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(letzte_number+1), digit, ergebnis))
     conn.commit()
-    ausgabe = cursor.fetchall()
+    cursor.execute('SELECT * FROM history')
+    ausgabe = cursor.fetchone()
     print(ausgabe)
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
-    stopp = True
-    if stopp:
-        cursor.close()
-        conn.close()
+    cursor.close()
+    conn.close()
     #math_own.math()
     return render_template("index.html", value=ergebnis)
     
