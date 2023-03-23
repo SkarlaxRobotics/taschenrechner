@@ -19,8 +19,6 @@ import math
 #     print(zahlen, operatoren)
 #     return zahlen, operatoren
 
-import math
-
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
