@@ -1,7 +1,10 @@
 body { 	background-color: #404040;
     color:#999999;
 }
-
+*{
+    margin: 0;
+    padding: 0;
+}
 .container {
         display: inline-block;
         line-height:5px;
