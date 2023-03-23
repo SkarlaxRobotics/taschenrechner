@@ -56,7 +56,7 @@ def result():
     print(digit)
     cursor.execute('SELECT MAX(number) FROM history')
     letzte_number = cursor.fetchall()
-    print(letzte_number)
+    print(letzte_number[1])
     cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(letzte_number+1), digit, ergebnis))
     conn.commit()
     cursor.execute('SELECT * FROM history')
