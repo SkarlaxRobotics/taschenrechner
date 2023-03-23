@@ -4,9 +4,9 @@ def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    for c in enumerate (rechnung):
-        if c.isdigit() or c == ".":
-            zahl += c 
+    for i,c in enumerate (rechnung):
+        if i.isdigit() or i == ".":
+            zahl += i
         elif c == "-" and (i == 0 or not rechnung[i-1].isdigit()):
             zahl = "-"
         elif i in ["+","-","*","/","**2"]:
