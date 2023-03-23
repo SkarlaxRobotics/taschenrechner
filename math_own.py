@@ -68,14 +68,15 @@ def multiplizieren(zahlen):
         ergebnis *= zahl
     return ergebnis
 
-def dividieren(zahlen):
+def dividieren(zahlen):    
     ergebnis = zahlen[0]
-    if zahlen == 0:
-        print('mathematischer fehler')
+    for i in range(1, len(zahlen)):
+        if zahlen[i] == 0:
+            print("Mathematischer Fehler")
+        return None
     else:
-        for i in range(1, len(zahlen)):
-            ergebnis /= zahlen[i]
-        return ergebnis
+        ergebnis /= zahlen[i]
+    return ergebnis
 
 def quadrieren(zahlen):
     ergebnis = [] #später gucken ob klappt
