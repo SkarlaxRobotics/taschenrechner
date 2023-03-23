@@ -56,6 +56,7 @@ def result():
     print(digit)
     cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(1), digit, ergebnis))
     cursor.execute('SELECT * FROM history')
+    conn.commit()
     ausgabe = cursor.fetchall()
     print(ausgabe)
     #second_digit = float(output["sdigit"])
