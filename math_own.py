@@ -23,7 +23,7 @@ import re
 
 def regu(rechnung):
 
-    regex = r"([a-zA-Z])|(-?\d+(\.\d+)?)|([+\-*/^()])|([^\d])"gm
+    regex = r"([a-zA-Z])|(-?\d+(\.\d+)?)|([+\-*/^()])|([^\d])"
 
     test_str = rechnung
 
