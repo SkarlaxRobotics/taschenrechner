@@ -73,8 +73,8 @@
         </div>
         <div class="history-container">
               <ul>
-                {% for i in range(len(history))%}
-                <li>{{history[i]}}</li>
+                {% for item in history%}
+                <li>{{history[item]}}</li>
                 {% endfor%}
               </ul>
           </div>
