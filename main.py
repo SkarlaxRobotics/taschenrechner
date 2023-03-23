@@ -38,10 +38,14 @@ app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 
 def index():
+    # sqlite connection
+    conn = sqlite3.connect('history_calc.db')
+    cursor = conn.cursor()
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchall()
     return render_template("index.html", history=ausgabe)
-
+    cursor.close()
+    conn.close()
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result():
