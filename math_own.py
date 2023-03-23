@@ -55,7 +55,7 @@ def subtrahieren(zahlen):
     ergebnis = zahlen[0]
     for i in range (1, len(zahlen)):
         ergebnis -= zahlen[1]
-    ergebnis=ergebnis*-1
+    # ergebnis=ergebnis*-1
     return ergebnis
 
 def multiplizieren(zahlen):
