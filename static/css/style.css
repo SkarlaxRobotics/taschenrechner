@@ -34,6 +34,11 @@ input{
     border-collapse: collapse;
     background-color: rgb(255, 255, 255); 
 }
+li{
+    list-style-type: none;
+    margin-bottom: 10px;
+
+}
 .output{
     align-items: center;
     height: 10vh;
