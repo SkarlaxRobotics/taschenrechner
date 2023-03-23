@@ -54,7 +54,7 @@ def result():
     digit = str(output["digit"])
     ergebnis = math_own.main(digit)
     print(digit)
-    cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(1), digit, ergebnis))
+    cursor.execute('INSERT INTO test VALUES (?, ?, ?)', (int(1), digit, ergebnis))
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchall()
     print(ausgabe)
