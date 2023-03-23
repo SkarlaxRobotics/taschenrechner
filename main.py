@@ -46,6 +46,8 @@ def index():
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result():
+    conn = sqlite3.connect('history_calc.db')
+    cursor = conn.cursor()
     output = request.form.to_dict()
     print(output)
     #ergebnis = output["num"]
