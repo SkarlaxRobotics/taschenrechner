@@ -75,7 +75,8 @@ def result():
     cursor.close()
     conn.close()
     # ausgabe
-    return render_template("index.html", value=ergebnis, history=ausgabe)
+    reversed_ausgabe = reversed(ausgabe)
+    return render_template("index.html", value=ergebnis, history=reversed_ausgabe)
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
