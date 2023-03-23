@@ -61,8 +61,10 @@ def result():
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
-
-
+    stopp = True
+    if stopp:
+        cursor.close()
+        conn.close()
     #math_own.math()
     return render_template("index.html", value=ergebnis)
     
@@ -72,7 +74,3 @@ if __name__ == '__main__':
     app.run(port=5001, debug=True)
 
 
-stopp = False
-if stopp:
-    cursor.close()
-    conn.close()
