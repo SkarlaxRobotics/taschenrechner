@@ -55,6 +55,9 @@ def result():
     ergebnis = math_own.main(digit)
     print(digit)
     cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(1), digit, ergebnis))
+    cursor.execute('SELECT * FROM history')
+    ausgabe = cursor.fetchall()
+    print(ausgabe)
     #second_digit = float(output["sdigit"])
     #operator = str(output["operator"])
     #ergebnis = first_digit*second_digit
