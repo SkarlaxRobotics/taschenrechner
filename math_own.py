@@ -3,7 +3,7 @@ def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    o = ["+","-","*","/","**2"]
+    o = ["+","-","*","/","^"]
     for i in rechnung:
         if i.isdigit() or i == ".":
             zahl += i 
