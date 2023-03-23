@@ -1,4 +1,5 @@
 import math
+
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
@@ -15,9 +16,11 @@ def split_taschenrechner(rechnung):
         zahlen.append(float(zahl))
     print(zahlen, operatoren)
     return zahlen, operatoren
+
 def main(rechnung):
     ergebnis = loese(rechnung)
     return ergebnis
+
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     while "*" in operatoren or "/" in operatoren:
@@ -37,12 +40,10 @@ def loese(rechnung):
     while len(operatoren) > 0:
         op = operatoren.pop(0)
         zahl = zahlen.pop(0)
+    for i, op in enumerate(operatoren):
         if op == "+":
-            zahlen[0] += zahl
+            zahlen[i+1] = zahlen[i] + zahlen[i+1]
         elif op == "-":
-            zahlen[0] -= zahl
-            if zahlen[0]==0:
-                zahlen[0]=zahlen[0]*1
-            else:
-                zahlen[0]=zahlen[0]*-1
-    return zahlen[0]
+            zahlen[i+1] = zahlen[i] - zahlen[i+1]
+            i += 1
+    return zahlen[-1]
