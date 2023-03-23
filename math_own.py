@@ -7,8 +7,9 @@ import math
 #     for i in rechnung:
 #         if i.isdigit() or i == ".":
 #             zahl += i 
-#         elif i == "-"  and i-1 in o:
+#         elif i == "-"  and rechnung[i-1] in o:
 #             zahl += "-"
+#         
 #         elif i in o:
 #             if zahl:
 #                 zahlen.append(float(zahl))
