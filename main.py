@@ -4,9 +4,20 @@ import math_own
 import sqlite3
 
 # Datenbank-Integration
-conn = sqlite3.connect('database_name.db')
+conn = sqlite3.connect('history_calc.db')
 cursor = conn.cursor()
-cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
+
+
+
+table_name = 'history'
+cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'")
+result = cursor.fetchone()
+
+if result:
+    print("Datenbank existiert bereits. fahre fort")
+else:
+    cursor.execute('CREATE TABLE {table_name}(number INTEGER, rechnung TEXT, ergebnis TEXT)')
+    print("Database table wurde erstellt")
 
 
 
@@ -55,3 +66,8 @@ def result():
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
 
+
+stopp = False
+if stopp:
+    cursor.close()
+    conn.close()
