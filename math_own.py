@@ -8,7 +8,7 @@ def split_taschenrechner(rechnung):
         if i.isdigit() or i == ".":
             zahl += i 
         elif i == "-"  and i-1 in o:
-            zahl = zahl * -1
+            zahl[i]= zahl[i] * -1
         elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
