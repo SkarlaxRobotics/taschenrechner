@@ -1,5 +1,5 @@
 import flask
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, request
 import math_own
 import sqlite3
 
