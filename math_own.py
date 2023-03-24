@@ -31,7 +31,7 @@ def loese(rechnung):
     
     while "!" in operatoren:
         for i in rechnung:
-            if rechnung[rechnung.index(i)-1] == "-":
+            if rechnung[rechnung.index(i)-2] == "-":
                 return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
             if op == "!":
