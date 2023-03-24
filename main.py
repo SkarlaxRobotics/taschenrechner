@@ -28,7 +28,7 @@ cursor.execute('SELECT * FROM history WHERE number="1"')
 no_entry_yet = cursor.fetchall()
 print("no_entry_yet", no_entry_yet)
 if not no_entry_yet:
-    cursor.execute('INSERT INTO history VALUES (1, "2 * 2", "25")')
+    cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
     conn.commit()
 
 cursor.close()
