@@ -13,6 +13,8 @@ def split_taschenrechner(rechnung):
     
     
     for i in rechnung:
+
+
         if i.isdigit() or i == "." :
             zahl += i 
         elif i == "-"  and x==True:
@@ -23,18 +25,18 @@ def split_taschenrechner(rechnung):
                 zahl = ""
             operatoren.append(i)
 
-        if i in o and y==False:
+        if i in o and y==False and x==False:
             x=True
+        elif i in o and x==True and y==False:
             y=True
-
-        if i in o and y==True:
+        elif i in o and y==True:
             return "Syntax Error"
-            
-
         elif x==True and i==" ":
             x=True
         else:
             x=False
+            y=False
+
     
     
     

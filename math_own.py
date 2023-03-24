@@ -2,11 +2,14 @@ import math
 import re
 
 def split_taschenrechner(rechnung):
+
     zahlen = []
     operatoren = []
     zahl = ""
     o = ["+","-","*","/","^", "!"]
     x=True
+    y=False
+    
     for i in rechnung:
         if i.isdigit() or i == "." :
             zahl += i 
@@ -17,16 +20,23 @@ def split_taschenrechner(rechnung):
                 zahlen.append(float(zahl))
                 zahl = ""
             operatoren.append(i)
-        if i in o:
+        if i in o and y==False and x==False:
             x=True
-        elif x==True and (i==" " or i=="(" or i==")"):
+        elif i in o and x==True and y==False:
+            y=True
+        elif i in o and y==True:
+            return "Syntax Error"
+        elif x==True and i==" ":
             x=True
         else:
             x=False
+            y=False
+
     if zahl:
         zahlen.append(float(zahl))
     print(zahlen, operatoren)
     return zahlen, operatoren
+
 
 def main(rechnung):
     if not rechnung:
