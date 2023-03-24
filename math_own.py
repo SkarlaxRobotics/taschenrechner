@@ -11,7 +11,7 @@ def split_taschenrechner(rechnung):
             zahl += i 
         elif i == "n":
             zahl += x
-        elif i in ["+","-","*","/","^", "!"]:
+        elif i in ["+","-","*","/","^", "!","%"]:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
@@ -30,8 +30,6 @@ def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
     while "!" in operatoren:
-        if operatoren == "-":
-            return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
             if op == "!":
                     
@@ -42,7 +40,6 @@ def loese(rechnung):
                         zahlen[i]=math.factorial(int(zahlen[i]))
                         del operatoren[i]
     
-
     while "%" in operatoren:
         for i, op in enumerate(operatoren):
             if op == "%":
