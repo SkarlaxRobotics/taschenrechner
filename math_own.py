@@ -29,6 +29,17 @@ def main(rechnung):
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
+    while "!" in operatoren:
+        for i, op in enumerate(operatoren):
+            if op == "!":
+                    
+                    if i == "0":
+                        zahlen[i]=1
+                        del operatoren[i]
+                    else:
+                        zahlen[i]=math.factorial(int(zahlen[i]))
+                        del operatoren[i]
+                
 
 
     while "^" in operatoren:
