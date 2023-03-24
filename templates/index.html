@@ -68,8 +68,11 @@
         function clearFields(){
           var digit = document.getElementById("digit");
           document.getElementById("output").innerHTML = "0";
-
           digit.value = "";
+        }
+        function clearHistory(){
+          var history = document.getElementById("history-container ul")
+          history.style.display = "none";
         }
       </script>
     
