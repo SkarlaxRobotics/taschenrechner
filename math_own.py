@@ -29,18 +29,17 @@ def main(rechnung):
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
-    while "!" in operatoren:
-        for i, op in enumerate(operatoren):
-            if op == "!":
-                if zahlen[i] >= and type(zahlen[i]) == int:
-                    if i == "0":
-                        zahlen[i]=1
-                        del operatoren[i]
-                    else:
-                        zahlen[i]=math.factorial(zahlen[i])
-                        del operatoren[i]
-                else:
-                    return "n muss eine positive ganze Zahl oder Null sein"
+    # while "!" in operatoren:
+    #     for i, op in enumerate(operatoren):
+    #         if op == "!":
+    #                 if i == "0":
+    #                     zahlen[i]=1
+    #                     del operatoren[i]
+    #                 else:
+    #                     zahlen[i]=math.factorial(zahlen[i])
+    #                     del operatoren[i]
+    #             # else:
+    #             #     return "n muss eine positive ganze Zahl oder Null sein"
                 
 
     while "^" in operatoren:
