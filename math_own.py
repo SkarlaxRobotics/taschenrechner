@@ -9,7 +9,7 @@ def split_taschenrechner(rechnung):
     o = ["+","-","*","/","^", "!"]
     x=True
     y=False
-    n=math.pi 
+    n="%s" %math.pi 
     
     for i in rechnung:
         if rechnung[-2] in o and rechnung[-2]!="!":
