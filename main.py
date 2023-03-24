@@ -85,6 +85,7 @@ def result():
     reversed_ausgabe = reversed(ausgabe)
     return render_template("index.html", value=ergebnis, history=reversed_ausgabe, last_ergebnis=last_ergebnis)
 
+@app.route("/clear",methods = ['POST', 'GET'])
 def clear():
     # sqlite connection
     conn = sqlite3.connect('history_calc.db')
