@@ -50,8 +50,6 @@ def main(rechnung):
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
-    
-
     while "^" in operatoren:
         for i, op in enumerate(operatoren):
             if op == "^":
