@@ -13,8 +13,8 @@ def split_taschenrechner(rechnung):
     for i in rechnung:
         if i.isdigit() or i == "." :
             zahl += i 
-        elif i == "-"  and x==True:
-            zahl += "-"
+        elif (i =="-" or i=="+" )and x==True:
+            zahl += i
         elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
