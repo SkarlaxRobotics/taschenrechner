@@ -64,10 +64,11 @@
           var digit = document.getElementById("digit");
           digit.value = digit.value + buttonValue;
           document.getElementById("output").innerHTML = buttonValue;
-        }
-        function clearHistory(){
-          var history = document.getElementById("history-container ul")
-          history.style.display = "none";
+        } 
+        function clearFields(){
+          var digit = document.getElementById("digit");
+          document.getElementById("output").innerHTML = "0";
+          digit.value = "";
         }
       </script>
     
