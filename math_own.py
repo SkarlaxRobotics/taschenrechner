@@ -22,7 +22,7 @@ import re
 #     return zahlen, operatoren
 
 def regu(rechnung):
-    regex = r"([a-zA-Z]+|\d+)([-+*/])([a-zA-Z]+|\d+)"
+    regex = r"\\(- [0-9]+ \\+ n\\) \\* [0-9]+ \\^ [0-9]+ \\^ [0-9]+ - - [0-9]+"
 
     matches = re.finditer(regex, rechnung)
 
