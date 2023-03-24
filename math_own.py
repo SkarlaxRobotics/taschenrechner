@@ -30,6 +30,8 @@ def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
     while "!" in operatoren:
+        if operatoren == "-":
+            return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
             if op == "!":
                     
