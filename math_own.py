@@ -14,13 +14,16 @@ def split_taschenrechner(rechnung):
             zahl += i 
         elif i == "-"  and x==True:
             zahl += "-"
+            y=True
         elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
             operatoren.append(i)
-        if i in o:
+        if i in o and y==False:
             x=True
+        elif i in o and y==True:
+            return "Syntax Fehler"
         elif x==True and i==" ":
             x=True
         else:
