@@ -22,17 +22,13 @@ import re
 #     return zahlen, operatoren
 
 def regu(rechnung):
-    # Definieren des regulären Ausdrucks
-    regex = r"([a-zA-Z])|(-?\d+(\.\d+)?)|([+\-*/^()])|([^\d])"
+    regex = r"([a-zA-Z]+|\d+)([-+*/])([a-zA-Z]+|\d+)"
 
-    # Anwenden des regulären Ausdrucks auf die Rechnung
     matches = re.finditer(regex, rechnung)
 
-    # Listen für Zahlen und Operatoren
     zahlen = []
     operatoren = []
 
-    # Durchlaufen aller gefundenen Matches und Gruppen und Speichern der Tokens in den entsprechenden Listen
     for match in matches:
         for group in range(1, 5):
             token = match.group(group)
