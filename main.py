@@ -60,6 +60,7 @@ def result():
     print(output)
     digit = str(output["digit"])
     ergebnis = math_own.main(digit)
+    print("Ergebnis:", ergebnis)
     print(digit)
     
     # getting max previous number
