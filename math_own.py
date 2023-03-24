@@ -28,8 +28,6 @@ def main(rechnung):
     
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
-    if rechnung[rechnung.index(i)-4] == operatoren:
-        return "Syntax Fehler"
     while "!" in operatoren:
         for i in rechnung:
             if rechnung[rechnung.index(i)-2] == "-":
