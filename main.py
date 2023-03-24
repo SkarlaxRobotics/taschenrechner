@@ -92,12 +92,13 @@ def clear():
     cursor = conn.cursor()
     cursor.execute('DELETE FROM history')
     conn.commit()
-    cursor.close()
-    conn.close()
-    # ausgabe
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchall()
     reversed_ausgabe = reversed(ausgabe)
+    cursor.close()
+    conn.close()
+    # ausgabe
+
     return render_template("index.html", history=reversed_ausgabe)
 
 
