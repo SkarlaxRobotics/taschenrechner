@@ -22,7 +22,7 @@ def split_taschenrechner(rechnung):
 
 def main(rechnung):
     if not rechnung:
-        return "Bitte Eingabe"
+        return "Bitte Eingabe" 
     ergebnis = loese(rechnung)
     return ergebnis
     
