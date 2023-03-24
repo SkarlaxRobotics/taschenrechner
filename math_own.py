@@ -45,7 +45,7 @@ def split_taschenrechner(rechnung):
 
     if zahl:
         zahlen.append(float(zahl))
-    print(zahlen, operatoren)
+    # print(zahlen, operatoren)
     return zahlen, operatoren
 
 
