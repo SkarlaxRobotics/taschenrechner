@@ -5,29 +5,24 @@ def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    o = ["+","-","*","/","^"]
+    o = ["+","-","*","/","^", "!"]
     x=True
-    y=False
     for i in rechnung:
         if i.isdigit() or i == "." :
             zahl += i 
         elif i == "-"  and x==True:
             zahl += "-"
-            y=True
         elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
             operatoren.append(i)
-        if i in o and y==False:
+        if i in o:
             x=True
-        elif i in o and y==True:
-            return "Syntax Fehler"
         elif x==True and i==" ":
             x=True
         else:
             x=False
-            y=False
     if zahl:
         zahlen.append(float(zahl))
     print(zahlen, operatoren)
