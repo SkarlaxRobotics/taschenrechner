@@ -75,12 +75,12 @@
     
     </div>
     <div class="history-container">
-      <ul>
+      <ul><input type='button' value='CA' name='CA' onclick='clearFields()' id="CA"/>
         {% for item in history %}
         <li>{{item[1]}} = {{item[2]}}</li>
         {% endfor %}
       </ul>
-      <input type='button' value='CA' name='CA' onclick='clearFields()' id="CA"/>
+      
     </div>
   </body>
 </html>
