@@ -74,12 +74,13 @@ def result():
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchall()
     print("Aktueller Verlauf:", ausgabe)
+    last_ergebnis = ergebnis
 
     cursor.close()
     conn.close()
     # ausgabe
     reversed_ausgabe = reversed(ausgabe)
-    return render_template("index.html", value=ergebnis, history=reversed_ausgabe)
+    return render_template("index.html", value=ergebnis, history=reversed_ausgabe, last_ergebnis=last_ergebnis)
 
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
