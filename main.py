@@ -85,6 +85,21 @@ def result():
     reversed_ausgabe = reversed(ausgabe)
     return render_template("index.html", value=ergebnis, history=reversed_ausgabe, last_ergebnis=last_ergebnis)
 
+def clear():
+    # sqlite connection
+    conn = sqlite3.connect('history_calc.db')
+    cursor = conn.cursor()
+    cursor.execute('DELETE FROM history')
+    conn.commit()
+    cursor.close()
+    conn.close()
+    # ausgabe
+    cursor.execute('SELECT * FROM history')
+    ausgabe = cursor.fetchall()
+    reversed_ausgabe = reversed(ausgabe)
+    return render_template("index.html", history=reversed_ausgabe)
+
+
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
 
