@@ -1,28 +1,8 @@
 import math
 import re
-# def split_taschenrechner(rechnung):
-#     zahlen = []
-#     operatoren = []
-#     zahl = ""
-#     o = ["+","-","*","/","^"]
-#     for i in rechnung:
-#         if i.isdigit() or i == ".":
-#             zahl += i 
-#         elif i == "-"  and i-1 in o:
-#             zahl += "-"
-        
-#         elif i in o:
-#             if zahl:
-#                 zahlen.append(float(zahl))
-#                 zahl = ""
-#             operatoren.append(i)
-#     if zahl:
-#         zahlen.append(float(zahl))
-#     print(zahlen, operatoren)
-#     return zahlen, operatoren
 
 def regu(rechnung):
-    regex = r"\\(- [0-9]+ \\+ n\\) \\* [0-9]+ \\^ [0-9]+ \\^ [0-9]+ - - [0-9]+"
+    regex = r""
 
     matches = re.finditer(regex, rechnung)
 
@@ -70,6 +50,8 @@ def main(rechnung):
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
+    
+
     while "^" in operatoren:
         for i, op in enumerate(operatoren):
             if op == "^":
