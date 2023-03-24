@@ -1,4 +1,5 @@
 import re
+import math
 def split_taschenrechner1(rechnung):
     zahlen = []
     operatoren = []
@@ -7,7 +8,7 @@ def split_taschenrechner1(rechnung):
     for i in rechnung:
         if i.isdigit() or i == ".":
             zahl += i 
-        elif i == "-"  and i-1 in o:
+        elif i == "-"  and rechnung.index(i)-1 in o:
             zahl += "-"
         
         elif i in o:
@@ -73,12 +74,13 @@ def loese(rechnung):
     while "!" in operatoren:
         for i, op in enumerate(operatoren):
             if op == "!":
-                    int(zahlen[i])
+                    
                     if i == "0":
                         zahlen[i]=1
                         del operatoren[i]
                     else:
-                        zahlen[i]=math.factorial(zahlen[i])
+                        zahlen[i]=math.factorial(int(zahlen[i]))
                         del operatoren[i]
                 # else:
                 #     return "n muss eine positive ganze Zahl oder Null sein"
+
