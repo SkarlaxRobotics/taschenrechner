@@ -7,8 +7,6 @@ def split_taschenrechner(rechnung):
     zahl = ""
     x="%s" % math.pi
     for i in rechnung:
-        if rechnung[rechnung.index(i)-2] == operatoren:
-            return "Syntax Fehler"
         if i.isdigit() or i == "." :
             zahl += i 
         elif i == "n":
@@ -33,7 +31,7 @@ def loese(rechnung):
     
     while "!" in operatoren:
         for i in rechnung:
-            if rechnung[rechnung.index(i)-1] == "-":
+            if rechnung[rechnung.index(i)-2] == "-":
                 return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
             if op == "!":
