@@ -17,6 +17,9 @@ def split_taschenrechner(rechnung):
         elif i.isdigit() or i == ".":
             zahl += i 
         elif i=="n":
+            zahlen.append(float(zahl))
+            operatoren.append("*")
+            zahl = ""
             zahl += n
         elif (i =="-" or i=="+" )and x==True:
             zahl += i
