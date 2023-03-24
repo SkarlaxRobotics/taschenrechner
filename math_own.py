@@ -1,7 +1,7 @@
 import math
 import re
 
-def split_taschenrechner1(rechnung):
+def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
