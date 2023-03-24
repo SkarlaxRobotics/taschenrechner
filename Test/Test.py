@@ -6,11 +6,13 @@ def split_taschenrechner1(rechnung):
     zahl = ""
     o = ["+","-","*","/","^"]
     for i in rechnung:
+        z=rechnung[rechnung.index(i)-3]
+        print(i)
+        print(z)
         if i.isdigit() or i == ".":
             zahl += i 
-        elif i == "-"  and rechnung.index(i)-1 in o:
+        elif i == "-"  and z in o:
             zahl += "-"
-        
         elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
@@ -21,46 +23,30 @@ def split_taschenrechner1(rechnung):
     print(zahlen, operatoren)
     return zahlen, operatoren
 
-def regu(rechnung):
-    regex = r""
-
-    matches = re.finditer(regex, rechnung)
-
-    zahlen = []
-    operatoren = []
-
-    for match in matches:
-        for group in range(1, 5):
-            token = match.group(group)
-            if token:
-                if token.isnumeric() or '.' in token:
-                    zahlen.append(token)
-                else:
-                    operatoren.append(token)
-
-    # Ausgabe der Zahlen und Operatoren
-    print("Zahlen:", zahlen)
-    print("Operatoren:", operatoren)
-
 
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    x="%s" % math.pi
+    o = ["+", "-", "*", "/", "^"]
+    last_was_op = True # flag to check if the last character was an operator
     for i in rechnung:
-        if i.isdigit() or i == "." :
+        if i.isdigit() or i == ".":
             zahl += i 
-        elif i == "n":
-            zahl += x
-        elif i in ["+","-","*","/","^", "!"]:
+            last_was_op = False
+        elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
+            if not last_was_op:
+                operatoren.append("+")
             operatoren.append(i)
+            last_was_op = True
     if zahl:
         zahlen.append(float(zahl))
     return zahlen, operatoren
+
+
 
 def main(rechnung):
     if not rechnung:

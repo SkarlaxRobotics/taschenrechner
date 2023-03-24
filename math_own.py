@@ -1,25 +1,33 @@
 import math
 import re
 
-def split_taschenrechner(rechnung):
+def split_taschenrechner1(rechnung):
     zahlen = []
     operatoren = []
     zahl = ""
-    x="%s" % math.pi
+    o = ["+","-","*","/","^"]
+    x=True
     for i in rechnung:
         if rechnung[rechnung.index(i)-4] == operatoren:
             return "Syntax Fehler"
         if i.isdigit() or i == "." :
             zahl += i 
-        elif i == "n":
-            zahl += x
-        elif i in ["+","-","*","/","^", "!","%"]:
+        elif i == "-"  and x==True:
+            zahl += "-"
+        elif i in o:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
             operatoren.append(i)
+        if i in o:
+            x=True
+        elif x==True and i==" ":
+            x=True
+        else:
+            x=False
     if zahl:
         zahlen.append(float(zahl))
+    print(zahlen, operatoren)
     return zahlen, operatoren
 
 def main(rechnung):
