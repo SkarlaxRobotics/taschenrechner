@@ -35,7 +35,6 @@ def loese(rechnung):
                 return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
             if op == "!":
-                    
                     if i == "0":
                         zahlen[i]=1
                         del operatoren[i]
