@@ -7,6 +7,7 @@ def split_taschenrechner(rechnung):
     zahl = ""
     o = ["+","-","*","/","^"]
     x=True
+    y=False
     for i in rechnung:
         if rechnung[rechnung.index(i)-4] == operatoren:
             return "Syntax Fehler"
@@ -28,6 +29,7 @@ def split_taschenrechner(rechnung):
             x=True
         else:
             x=False
+            y=False
     if zahl:
         zahlen.append(float(zahl))
     print(zahlen, operatoren)
