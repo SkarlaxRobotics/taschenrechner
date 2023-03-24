@@ -74,7 +74,8 @@ def result():
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchall()
     print("Aktueller Verlauf:", ausgabe)
-    last_ergebnis = ergebnis
+    
+    last_ergebnis = ergebnis if ergebnis == "Mathematischer Fehler" or "Bitte Eingabe" else 0
 
     cursor.close()
     conn.close()
