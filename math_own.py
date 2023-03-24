@@ -16,8 +16,7 @@ def split_taschenrechner(rechnung):
         elif i.isdigit() or i == ".":
             zahl += i 
         elif i=="n":
-            i=math.pi
-            zahl += i 
+            zahl += math.pi 
         elif (i =="-" or i=="+" )and x==True:
             zahl += i
         elif i in o:
