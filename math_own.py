@@ -40,7 +40,7 @@ def main(rechnung):
     return ergebnis
     
 def loese(rechnung):
-    if split_taschenrechner(rechnung)==str:
+    if split_taschenrechner(rechnung)=="Syntax Fehler":
         return "Syntax Fehler"
     else:
         zahlen, operatoren = split_taschenrechner(rechnung)
