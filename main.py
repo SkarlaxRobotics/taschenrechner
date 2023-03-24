@@ -92,6 +92,8 @@ def clear():
     cursor = conn.cursor()
     cursor.execute('DELETE FROM history')
     conn.commit()
+    cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
+    conn.commit()
     cursor.execute('SELECT * FROM history')
     ausgabe = cursor.fetchall()
     reversed_ausgabe = reversed(ausgabe)
