@@ -46,7 +46,7 @@ def main(rechnung):
     
 def loese(rechnung):
     if split_taschenrechner(rechnung)=="Syntax Error":
-        return "Syntax Fehler"
+        return "Syntax Error"
     else:
         zahlen, operatoren = split_taschenrechner(rechnung)
     while "!" in operatoren:
