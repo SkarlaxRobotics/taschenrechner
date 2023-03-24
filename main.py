@@ -47,7 +47,7 @@ def index():
     conn.close()
     reversed_ausgabe = reversed(ausgabe)
 
-    return render_template("index.html", history=reversed_ausgabe)
+    return render_template("index.html", history=reversed_ausgabe, ergebnis="0")
 
 
 @app.route("/result",methods = ['POST', 'GET'])
