@@ -9,8 +9,6 @@ def split_taschenrechner(rechnung):
     x=True
     y=False
     for i in rechnung:
-        if rechnung[rechnung.index(i)-4] == operatoren:
-            return "Syntax Fehler"
         if i.isdigit() or i == "." :
             zahl += i 
         elif i == "-"  and x==True:
@@ -42,7 +40,10 @@ def main(rechnung):
     return ergebnis
     
 def loese(rechnung):
-    zahlen, operatoren = split_taschenrechner(rechnung)
+    if split_taschenrechner(rechnung)==str:
+        return "Syntax Fehler"
+    else:
+        zahlen, operatoren = split_taschenrechner(rechnung)
     while "!" in operatoren:
         for i in rechnung:
             if rechnung[rechnung.index(i)-2] == "-":
