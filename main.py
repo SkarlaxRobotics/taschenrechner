@@ -76,7 +76,7 @@ def result():
     ausgabe = cursor.fetchall()
     print("Aktueller Verlauf:", ausgabe)
     
-    last_ergebnis = ergebnis if not ergebnis == "Mathematischer Fehler" or "Bitte Eingabe" else "0"
+    last_ergebnis = ergebnis if not ergebnis == "Mathematischer Fehler" or not ergebnis == "Bitte Eingabe" else "0"
     print("fehler erkannt (ergebnis / answer)") if not ergebnis == "Mathematischer Fehler" or "Bitte Eingabe" else None
     print(last_ergebnis)
 
