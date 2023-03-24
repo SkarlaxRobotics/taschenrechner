@@ -19,7 +19,7 @@ def split_taschenrechner(rechnung):
             operatoren.append(i)
         if i in o:
             x=True
-        elif x==True and i==" ":
+        elif x==True and (i==" " or i=="(" or i==")"):
             x=True
         else:
             x=False
