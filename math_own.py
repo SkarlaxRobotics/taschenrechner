@@ -1,27 +1,6 @@
 import math
 import re
 
-def regu(rechnung):
-    regex = r""
-
-    matches = re.finditer(regex, rechnung)
-
-    zahlen = []
-    operatoren = []
-
-    for match in matches:
-        for group in range(1, 5):
-            token = match.group(group)
-            if token:
-                if token.isnumeric() or '.' in token:
-                    zahlen.append(token)
-                else:
-                    operatoren.append(token)
-
-    # Ausgabe der Zahlen und Operatoren
-    print("Zahlen:", zahlen)
-    print("Operatoren:", operatoren)
-
 def split_taschenrechner(rechnung):
     zahlen = []
     operatoren = []
@@ -32,7 +11,7 @@ def split_taschenrechner(rechnung):
             zahl += i 
         elif i == "n":
             zahl += x
-        elif i in ["+","-","*","/","^"]:
+        elif i in ["+","-","*","/","^", "!"]:
             if zahl:
                 zahlen.append(float(zahl))
                 zahl = ""
@@ -50,6 +29,20 @@ def main(rechnung):
 def loese(rechnung):
     zahlen, operatoren = split_taschenrechner(rechnung)
     
+    while "!" in operatoren:
+        for i, op in enumerate(operatoren):
+            if op == "!":
+                if zahlen[i] >= and type(zahlen[i]) == int:
+                    if i == "0":
+                        zahlen[i]=1
+                        del operatoren[i]
+                    else:
+                        zahlen[i]=math.factorial(zahlen[i])
+                        del operatoren[i]
+                else:
+                    return "n muss eine positive ganze Zahl oder Null sein"
+                
+
     while "^" in operatoren:
         for i, op in enumerate(operatoren):
             if op == "^":
