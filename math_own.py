@@ -41,8 +41,13 @@ def loese(rechnung):
                     else:
                         zahlen[i]=math.factorial(int(zahlen[i]))
                         del operatoren[i]
-                
+    
 
+    while "%" in operatoren:
+        for i, op in enumerate(operatoren):
+            if op == "%":
+                zahlen[i]=zahlen[i]/100
+                del operatoren[i]
 
     while "^" in operatoren:
         for i, op in enumerate(operatoren):
