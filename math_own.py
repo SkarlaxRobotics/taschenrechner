@@ -13,7 +13,10 @@ def split_taschenrechner(rechnung):
     for i in rechnung:
         if rechnung[-2] in o and rechnung[-2]!="!":
             return "Syntax Error"
-        elif i.isdigit() or i == "." :
+        elif i.isdigit() or i == ".":
+            zahl += i 
+        elif i=="n":
+            i=math.pi
             zahl += i 
         elif (i =="-" or i=="+" )and x==True:
             zahl += i
