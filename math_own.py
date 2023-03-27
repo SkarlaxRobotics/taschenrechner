@@ -1,7 +1,7 @@
 import math
 import re
-import rechnungen
-import split
+from rechnungen import *
+from split import *
 
 def main(rechnung):
     if not rechnung:
