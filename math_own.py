@@ -1,7 +1,7 @@
 import math
 import re
 
-def Fakultät (rechnung, zahlen, operatoren):
+def fakultaet (rechnung, zahlen, operatoren):
     for i in rechnung:
             if rechnung[rechnung.index(i)-2] == "-":
                 return "Mathematischer Fehler"
@@ -14,13 +14,13 @@ def Fakultät (rechnung, zahlen, operatoren):
                         zahlen[i]=math.factorial(int(zahlen[i]))
                         del operatoren[i]
 
-def Prozent (zahlen, operatoren):
+def prozent (zahlen, operatoren):
      for i, op in enumerate(operatoren):
             if op == "%":
                 zahlen[i]=zahlen[i]/100
                 del operatoren[i]
 
-def Potenz (zahlen, operatoren):
+def potenz (zahlen, operatoren):
      for i, op in enumerate(operatoren):
             if op == "%":
                 zahlen[i]=zahlen[i]/100
@@ -114,12 +114,12 @@ def loese(rechnung):
     else:
         zahlen, operatoren = split_rechnung(rechnung)
     while "!" in operatoren:
-        Fakultät(rechnung, zahlen, operatoren)
+        fakultaet(rechnung, zahlen, operatoren)
     while "%" in operatoren:
-        Prozent(zahlen, operatoren)
+        prozent(zahlen, operatoren)
 
     while "^" in operatoren:
-        Potenz(zahlen, operatoren)
+        potenz(zahlen, operatoren)
     
     while "*" in operatoren or "/" in operatoren:
         dividierenundmultiplizieren(zahlen, operatoren)
