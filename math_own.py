@@ -7,7 +7,16 @@ def main(rechnung):
     if not rechnung:
         return "Bitte Eingabe" 
     try:
-        loese(rechnung)
+        def klammern(rechnung):
+            if "(" in rechnung and ")":
+                start = rechnung.index("(")
+                end = rechnung.rindex(")")
+                inner_rechnung = rechnung[start+1:end]
+                result = klammern(inner_rechnung)
+                rechnung = rechnung[:start] + str(result) + rechnung[end+1:]
+                return klammern(rechnung)
+            else:
+                return loese(rechnung)
     except:
         print("Fehler")
     else:
