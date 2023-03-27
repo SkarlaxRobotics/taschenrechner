@@ -1,4 +1,5 @@
 import math
+
 class rechnungen:
     def fakultaet (rechnung, zahlen, operatoren):
         for i in rechnung:
@@ -19,11 +20,13 @@ class rechnungen:
                     zahlen[i]=zahlen[i]/100
                     del operatoren[i]
 
-    def potenz (zahlen, operatoren):
+    def potenz(zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "%":
-                    zahlen[i]=zahlen[i]/100
-                    del operatoren[i]
+            if op == "^":
+                zahlen[i] = zahlen[i] ** zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
 
     def dividierenundmultiplizieren (zahlen, operatoren):
         for i, op in enumerate(operatoren):
