@@ -6,8 +6,11 @@ import split.py
 def main(rechnung):
     if not rechnung:
         return "Bitte Eingabe" 
-    ergebnis = loese(rechnung)
-    return ergebnis
+    try:
+        ergebnis = loese(rechnung)
+        return ergebnis
+    except:
+        return "Fehler"
     
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
