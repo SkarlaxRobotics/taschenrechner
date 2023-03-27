@@ -17,8 +17,8 @@
         <div class="output">
           <h3 id="output" class="let_space">{{value}}</h3>
           <input type="text" id="digit" name="digit" class="current_in">
-
         </div>
+
         <p>
           <input type='button' value='ans' id="operator" name="operator" onclick='setFormValue(" {{last_ergebnis}} ")'/>
           <input type='button' value='sqr' id="operator" name="operator" onclick='setFormValue(" ^ 0.5 ")'/>
@@ -36,7 +36,7 @@
             
         </p>
         <p>
-          <input type='button' value=' ' id="operator" name="operator" />
+          <input type='button' value='' id="operator" name="operator" onclick='setFormValue(" * ")'/>
           <input type='button' value='x' id="operator" name="operator" onclick='setFormValue(" * ")'/>
           <input type='button' value='4' name='4' onclick='setFormValue("4")' id="4"name="4"/>
           <input type='button' value='5' name='5' onclick='setFormValue("5")' id="5" name="5"/>
@@ -57,6 +57,11 @@
           <input type='button' value='0' name='0' onclick='setFormValue("0")' id="0" name="0"/>
           <input class="file_submit" type="Submit"  value='=' name='enter'/>
         </p>
+        <p>
+          <input type='button' value='(' id="operator" name="operator" onclick='setFormValue(" ( ")'/>
+          <input type='button' value=')' id="operator" name="operator" onclick='setFormValue(" ) ")'/>  
+          <input type='button' value=',' name='C' onclick='clearFields()' id="."/>
+        </p>
       </form>
 
       <script>
@@ -71,8 +76,8 @@
           digit.value = "";
         }
       </script>
-    
     </div>
+
     <div class="history-container">
       <ul>
         {% for item in history %}
@@ -81,5 +86,6 @@
       </ul>
       
     </div>
+
   </body>
 </html>
