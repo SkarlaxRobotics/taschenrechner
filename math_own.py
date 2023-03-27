@@ -7,10 +7,12 @@ def main(rechnung):
     if not rechnung:
         return "Bitte Eingabe" 
     try:
+        loese(rechnung)
+    except:
+        print("Fehler")
+    else:
         ergebnis = loese(rechnung)
         return ergebnis
-    except:
-        return "Fehler"
     
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
@@ -33,4 +35,5 @@ def loese(rechnung):
 
     return zahlen[0]    
     
+
 
