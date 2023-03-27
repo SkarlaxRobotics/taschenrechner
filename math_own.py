@@ -142,3 +142,31 @@ def Potenz (zahlen, operatoren):
             if op == "%":
                 zahlen[i]=zahlen[i]/100
                 del operatoren[i]
+
+def dividierenundmultiplizieren (zahlen, operatoren):
+    for i, op in enumerate(operatoren):
+            if op == "*":
+                zahlen[i] = zahlen[i] * zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
+            elif op == "/":
+                if zahlen[i+1] == 0:
+                    return "Mathematischer Fehler"
+                zahlen[i] = zahlen[i] / zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
+        
+def plusminus (zahlen, operatoren):
+    op = operatoren.pop(0)
+    zahl = zahlen.pop(0)
+    if op == "+":
+        zahlen[0] += zahl
+    elif op == "-":
+        zahlen[0] -= zahl
+        if zahlen[0]==0:
+            zahlen[0]=zahlen[0]*1
+        else:
+            zahlen[0]=zahlen[0]*-1
+    return zahlen[0]
