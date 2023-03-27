@@ -3,10 +3,17 @@ from flask import Flask, render_template, request
 import math_own
 import sqlite3
 
-# Datenbank-Integration
-conn = sqlite3.connect('history_calc.db')
-cursor = conn.cursor()
 
+class database:
+    def open_connection():
+        conn = sqlite3.connect('history_calc.db')
+        cursor = conn.cursor() 
+
+    def close_connection():
+        cursor.close()
+        conn.close()
+        
+database.open_connection()
 
 
 table_name = 'history'
@@ -33,10 +40,6 @@ if not no_entry_yet:
 
 cursor.close()
 conn.close()
-
-def open_connection():
-    conn = sqlite3.connect('history_calc.db')
-    cursor = conn.cursor() 
 
 
 app = Flask(__name__)
