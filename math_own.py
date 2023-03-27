@@ -117,3 +117,28 @@ def loese(rechnung):
 
 
     math.exp 
+
+def Fakultät (rechnung, zahlen, operatoren):
+    for i in rechnung:
+            if rechnung[rechnung.index(i)-2] == "-":
+                return "Mathematischer Fehler"
+    for i, op in enumerate(operatoren):
+            if op == "!":
+                    if i == "0":
+                        zahlen[i]=1
+                        del operatoren[i]
+                    else:
+                        zahlen[i]=math.factorial(int(zahlen[i]))
+                        del operatoren[i]
+
+def Prozent (zahlen, operatoren):
+     for i, op in enumerate(operatoren):
+            if op == "%":
+                zahlen[i]=zahlen[i]/100
+                del operatoren[i]
+
+def Potenz (zahlen, operatoren):
+     for i, op in enumerate(operatoren):
+            if op == "%":
+                zahlen[i]=zahlen[i]/100
+                del operatoren[i]
