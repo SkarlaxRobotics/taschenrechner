@@ -61,59 +61,18 @@ def loese(rechnung):
     else:
         zahlen, operatoren = split_taschenrechner(rechnung)
     while "!" in operatoren:
-        for i in rechnung:
-            if rechnung[rechnung.index(i)-2] == "-":
-                return "Mathematischer Fehler"
-        for i, op in enumerate(operatoren):
-            if op == "!":
-                    if i == "0":
-                        zahlen[i]=1
-                        del operatoren[i]
-                    else:
-                        zahlen[i]=math.factorial(int(zahlen[i]))
-                        del operatoren[i]
-    
+        Fakultät()
     while "%" in operatoren:
-        for i, op in enumerate(operatoren):
-            if op == "%":
-                zahlen[i]=zahlen[i]/100
-                del operatoren[i]
+        Prozent()
 
     while "^" in operatoren:
-        for i, op in enumerate(operatoren):
-            if op == "^":
-                zahlen[i] = math.pow(zahlen[i],zahlen[i+1])
-                del zahlen[i+1]
-                del operatoren[i]
-                break
+        Potenz()
     
     while "*" in operatoren or "/" in operatoren:
-        for i, op in enumerate(operatoren):
-            if op == "*":
-                zahlen[i] = zahlen[i] * zahlen[i+1]
-                del zahlen[i+1]
-                del operatoren[i]
-                break
-            elif op == "/":
-                if zahlen[i+1] == 0:
-                    return "Mathematischer Fehler"
-                zahlen[i] = zahlen[i] / zahlen[i+1]
-                del zahlen[i+1]
-                del operatoren[i]
-                break
+        dividierenundmultiplizieren()
 
     while len(operatoren) > 0:
-        op = operatoren.pop(0)
-        zahl = zahlen.pop(0)
-        if op == "+":
-            zahlen[0] += zahl
-        elif op == "-":
-            zahlen[0] -= zahl
-            if zahlen[0]==0:
-                zahlen[0]=zahlen[0]*1
-            else:
-                zahlen[0]=zahlen[0]*-1
-    return zahlen[0]
+        plusminus()
 
 
     math.exp 
