@@ -25,7 +25,6 @@
           <input type='button' value='n' id="operator" name="operator" onclick='setFormValue("n")'/>
           <input type='button' value='^' id="operator" name="operator" onclick='setFormValue(" ^ ")'/>
           <input type='button' value='x²' id="operator" name="operator" onclick='setFormValue(" ^ 2 ")'/>
-          
         </p>
         <p>
           <input type="submit" value='CA'formaction="/clear"/>
@@ -75,6 +74,11 @@
           var digit = document.getElementById("digit");
           document.getElementById("output").innerHTML = "0";
           digit.value = "";
+        }
+        function deleteLast(){
+          var digit = document.getElementById("digit")
+          last_value = lastIndexOf(digit.value)
+          document.getElementById("output").innerHTML = last_value
         }
       </script>
     </div>
