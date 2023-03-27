@@ -70,13 +70,13 @@
           digit.value = digit.value + buttonValue;
           document.getElementById("output").innerHTML = buttonValue;
         } 
-        function clearFields(){
+        function clearFields() {
           var digit = document.getElementById("digit");
           document.getElementById("output").innerHTML = "0";
           digit.value = "";
         }
-        function deleteLast(){
-          document.getElementById("output").innerHTML = last_value + "would be deleted now";
+        function deleteLast() {
+          document.getElementById("output").innerHTML = string(last_value) + "would be deleted now";
           var digit = document.getElementById("digit");
           last_value = lastIndexOf(digit.value);
           
