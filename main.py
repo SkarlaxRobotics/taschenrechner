@@ -37,6 +37,7 @@ conn.close()
 app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 
+
 def index():
     # sqlite connection
     conn = sqlite3.connect('history_calc.db')
@@ -85,6 +86,7 @@ def result():
     reversed_ausgabe = reversed(ausgabe)
     return render_template("index.html", value=ergebnis, history=reversed_ausgabe, last_ergebnis=last_ergebnis)
 
+
 @app.route("/clear",methods = ['POST', 'GET'])
 def clear():
     # sqlite connection
@@ -107,9 +109,11 @@ def clear():
 if __name__ == '__main__':
     app.run(port=5001, debug=True)
 
+
 def get_max_number():
     cursor.execute('SELECT MAX(number) FROM history')
     return cursor.fetchone()
+
 
 max_number = int(get_max_number()[0]) if get_max_number() and get_max_number()[0] is not None else 0
 
