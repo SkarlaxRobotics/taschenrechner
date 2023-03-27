@@ -6,7 +6,9 @@ import sqlite3
 
 class database:
     def open_connection():
+        global conn
         conn = sqlite3.connect('history_calc.db')
+        global cursor
         cursor = conn.cursor() 
 
     def close_connection():
@@ -25,9 +27,9 @@ if result:
 else:
     cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
     print("Database table wurde erstellt")
-cursor.close()
-conn.close()
 
+
+database.close_connection()
 
 conn = sqlite3.connect('history_calc.db')
 cursor = conn.cursor()
