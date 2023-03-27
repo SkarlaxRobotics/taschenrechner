@@ -34,6 +34,11 @@ if not no_entry_yet:
 cursor.close()
 conn.close()
 
+def open_connection():
+    conn = sqlite3.connect('history_calc.db')
+    cursor = conn.cursor() 
+
+
 app = Flask(__name__)
 @app.route("/", methods=['GET', 'POST'])
 
@@ -54,8 +59,7 @@ def index():
 @app.route("/result",methods = ['POST', 'GET'])
 def result():
     # sqlite connection
-    conn = sqlite3.connect('history_calc.db')
-    cursor = conn.cursor()
+    open_connection()
     
     output = request.form.to_dict()
     print(output)
