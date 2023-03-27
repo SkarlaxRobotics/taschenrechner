@@ -127,5 +127,6 @@ def loese(rechnung):
     while len(operatoren) > 0:
         plusminus(zahlen, operatoren)
 
-    math.exp 
+    return zahlen[0]    
+    
 
