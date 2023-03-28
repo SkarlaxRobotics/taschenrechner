@@ -7,12 +7,12 @@ class rechnungen:
                     return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
                 if op == "!":
-                        if i == "0":
-                            zahlen[i]=1
-                            del operatoren[i]
-                        else:
-                            zahlen[i]=math.factorial(int(zahlen[i]))
-                            del operatoren[i]
+                    # if i == "0":
+                    #     zahlen[i]=1
+                    #     del operatoren[i]
+                    # else:
+                    zahlen[i]=math.factorial(int(zahlen[i]))
+                    del operatoren[i]
 
     def berechne_prozent (zahlen, operatoren):
         for i, op in enumerate(operatoren):
