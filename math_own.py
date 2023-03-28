@@ -35,6 +35,8 @@ def loese(rechnung):
 
     return zahlen[0]    
     
+def test_function():
+    assert main("4 + 8") == "12"
 def klammern(rechnung):
     if "(" in rechnung and ")":
         start = rechnung.index("(")
@@ -45,5 +47,4 @@ def klammern(rechnung):
         return klammern(rechnung)
     else:
         return loese(rechnung)
-
 
