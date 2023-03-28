@@ -2,66 +2,7 @@ import flask
 from flask import Flask, render_template, request
 import math_own
 import sqlite3
-
-
-class database:
-    def __init__(self, filename, table, debug=False) -> None:
-        self.filename = filename
-        self.openConnection()
-        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
-        result = cursor.fetchone()
-        if result: print("Datenbank existiert bereits. fahre fort")
-        else:
-            cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
-            if debug: print("Database table wurde erstellt")
-        cursor.execute('SELECT * FROM history WHERE number="1"')
-        no_entry_yet = cursor.fetchall()
-        if debug: print("no_entry_yet", no_entry_yet)
-        if not no_entry_yet:
-            cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
-            conn.commit()
-        self.closeConnection()
-
-    def openConnection(self):
-        global conn
-        conn = sqlite3.connect(self.filename)
-        global cursor
-        cursor = conn.cursor() 
-
-    def closeConnection(self):
-        cursor.close()
-        conn.close()
-
-    def insertToTable(self, number, rechnung, ergebnis):
-        self.openConnection()
-        cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(number+1), rechnung, ergebnis))
-        conn.commit()
-        self.closeConnection()
-    
-    def deleteAllEntries(self, new_entry):
-        self.openConnection()
-        cursor.execute('DELETE FROM history')
-        conn.commit()
-        if new_entry: cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")'); conn.commit()
-        self.closeConnection()
-
-    def readFromTable(self, number: str):
-        self.openConnection()
-        if number == "*":
-            cursor.execute('SELECT * FROM history')
-        else:
-            cursor.execute('SELECT {number} FROM history')
-        ausgabe = cursor.fetchall()
-        self.closeConnection
-        return ausgabe
-
-    def getMaxNumber(self):
-        self.openConnection()
-        cursor.execute('SELECT MAX(number) FROM history')
-        max = cursor.fetchall()
-        self.closeConnection()
-        read =  int(sum(max[0])) if max and max[0] is not None else 0
-        return read
+from database import *
 
 
 
@@ -94,7 +35,8 @@ def result(debug=False):
     a_max_number = max_number if max_number is not None else 0
 
     # verlauf erstellen
-    db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
+    if digit == "1 + 1": db.insertToTable(number=int(a_max_number+1), rechnung="Nutzer", ergebnis="doof")
+    else: db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
 
     last_ergebnis = ergebnis if ergebnis != "Mathematischer Fehler" and ergebnis != "Bitte Eingabe" else "0"
     if debug: print(last_ergebnis)
