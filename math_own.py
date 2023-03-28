@@ -1,5 +1,4 @@
 import math
-import re
 from rechnungen import *
 from split import *
 
