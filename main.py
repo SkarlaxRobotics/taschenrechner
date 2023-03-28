@@ -10,7 +10,7 @@ class database:
         self.openConnection()
         cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
         result = cursor.fetchone()
-        if result and debug: print("Datenbank existiert bereits. fahre fort")
+        if result: print("Datenbank existiert bereits. fahre fort")
         else:
             cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
             if debug: print("Database table wurde erstellt")
