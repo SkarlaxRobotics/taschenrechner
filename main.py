@@ -82,7 +82,7 @@ def result(debug=False):
     if debug: print(output)
     
     digit = str(output["digit"])
-    
+
     # Berechnung:
     ergebnis = math_own.main(digit)
     
