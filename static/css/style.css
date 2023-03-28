@@ -75,11 +75,11 @@ input:hover{
     border: none;
     bottom: 1px;
 }
-
+/*
 .left{
     text-align: left;
 }
-
+*/
 @media only screen and (max-width: 800px) {
     .container{
         width: 95vw;
