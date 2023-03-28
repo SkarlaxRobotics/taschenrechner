@@ -24,6 +24,9 @@ def loese(rechnung):
         else:
             rechnungen.berechne_fakultaet(rechnung, zahlen, operatoren)
 
+    while "sin" in operatoren:
+        rechnungen.berechne_sinus(zahlen, operatoren)
+
     while "%" in operatoren:
         rechnungen.berechne_prozent(zahlen, operatoren)
 
