@@ -17,7 +17,6 @@ class split:
                     zahlen.append(float(zahl))
                     operatoren.append("*")
                     zahl = ""
-                    zahl += i
             elif i.isdigit() or i == ".":
                 zahl += i 
             elif i=="n":
