@@ -14,6 +14,19 @@ def testPlus():
     result = main("4 + 4")
     assert result == 8
 
+def testGeteilt():
+    result = main("4 / 4")
+    assert result == 1
+
+def testGeteiltWithZero():
+    result = main("4 / 0")
+    assert result == "Mathematischer Fehler"
+    
+def testMal():
+    result = main("4 * 4")
+    assert result == 16
+
+
 def testFakultaet():
     result = main("4 !")
     assert result == 24
