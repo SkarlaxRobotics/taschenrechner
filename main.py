@@ -85,7 +85,7 @@ def result(debug=False):
 
     # Berechnung:
     ergebnis = math_own.main(digit)
-    
+
     if debug: print("Ergebnis: ", ergebnis); print("Digit: ", digit)
     
     # getting max previous number
