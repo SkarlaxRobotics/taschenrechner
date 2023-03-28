@@ -19,6 +19,12 @@ class rechnungen:
                 if op == "%":
                     zahlen[i]=zahlen[i]/100
                     del operatoren[i]
+    
+    def berechne_sinus (zahlen, operatoren):
+        for i, op in enumerate(operatoren):
+                if op == "sin":
+                    zahlen[i]=math.sin(zahlen[i])
+                    del operatoren[i]
 
     def berechne_potenz(zahlen, operatoren):
         for i, op in enumerate(operatoren):
