@@ -23,21 +23,23 @@ class rechnungen:
     def berechne_sinus (zahlen, operatoren):
         for i, op in enumerate(operatoren):
                 if op == "sin":
-                    zahlen[i]=math.sin(math.radians(zahlen[i]))
+                    zahlen[i]=round(math.sin(math.radians(zahlen[i])),3)
                     del operatoren[i]
                     print (zahlen[i])
     
     def berechne_cosinus (zahlen, operatoren):
         for i, op in enumerate(operatoren):
                 if op == "cos":
-                    zahlen[i]=math.cos(math.radians(zahlen[i]))
+                    zahlen[i]=round(math.cos(math.radians(zahlen[i])),3)
                     del operatoren[i]
+                    print (zahlen[i])
 
     def berechne_tangens (zahlen, operatoren):
         for i, op in enumerate(operatoren):
                 if op == "tan":
-                    zahlen[i]=math.radians(math.tan(zahlen[i]))
+                    zahlen[i]=round(math.tan(math.radians(zahlen[i])),3)
                     del operatoren[i]
+                    print (zahlen[i])
 
     def berechne_potenz(zahlen, operatoren):
         for i, op in enumerate(operatoren):
