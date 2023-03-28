@@ -5,6 +5,24 @@ import sqlite3
 
 
 class database:
+        
+    def __init__(self, filename, table, debug=False) -> None:
+        self.filename = filename
+        database.openConnection()
+        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
+        result = cursor.fetchone()
+        if result and debug: print("Datenbank existiert bereits. fahre fort")
+        else:
+            cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
+            if debug: print("Database table wurde erstellt")
+        cursor.execute('SELECT * FROM history WHERE number="1"')
+        no_entry_yet = cursor.fetchall()
+        if debug: print("no_entry_yet", no_entry_yet)
+        if not no_entry_yet:
+            cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
+            conn.commit()
+        database.closeConnection()
+
     def openConnection(self):
         global conn
         conn = sqlite3.connect(self.filename)
@@ -45,23 +63,6 @@ class database:
         max = cursor.fetchone()
         global max_number
         max_number = int(max[0]) if max and max[0] is not None else 0
-    
-    def __init__(self, filename, table, debug=False) -> None:
-        self.filename = filename
-        database.openConnection()
-        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
-        result = cursor.fetchone()
-        if result and debug: print("Datenbank existiert bereits. fahre fort")
-        else:
-            cursor.execute('CREATE TABLE history(number INTEGER, rechnung TEXT, ergebnis TEXT)')
-            if debug: print("Database table wurde erstellt")
-        cursor.execute('SELECT * FROM history WHERE number="1"')
-        no_entry_yet = cursor.fetchall()
-        if debug: print("no_entry_yet", no_entry_yet)
-        if not no_entry_yet:
-            cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
-            conn.commit()
-        database.closeConnection()
 
 
 
