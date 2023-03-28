@@ -51,8 +51,8 @@
         <p>
           <input type='button' value='%' id="operator" name="operator" onclick='setFormValue(" % ")'/>
           <input type='button' value='+' id="operator" name="operator" onclick='setFormValue(" + ")'/>  
-          <input type='button' value='<-' name='<-' onclick='deleteLast()' id="<-"/>
           <input type='button' value='0' name='0' onclick='setFormValue("0")' id="0" name="0"/>
+          <input type='button' value='<-' name='<-' onclick='deleteLast()' id="<-"/>
           <input class="file_submit" type="Submit"  value='=' name='enter'/>
         </p>
         <p class="left">
@@ -74,7 +74,6 @@
           digit.value = "";
         }
         function deleteLast() {
-          
           var digit = document.getElementById("digit");
           last_value = lastIndexOf(digit.value);
           document.getElementById("output").innerHTML = last_value+1;
