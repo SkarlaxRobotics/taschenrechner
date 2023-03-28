@@ -20,18 +20,18 @@ def loese(rechnung):
     else:
         zahlen, operatoren = split.split_rechnung(rechnung)
     while "!" in operatoren:
-        rechnungen.fakultaet(rechnung, zahlen, operatoren)
+        rechnungen.berechne_fakultaet(rechnung, zahlen, operatoren)
     while "%" in operatoren:
-        rechnungen.prozent(zahlen, operatoren)
+        rechnungen.berechne_prozent(zahlen, operatoren)
 
     while "^" in operatoren:
-        rechnungen.potenz(zahlen, operatoren)
+        rechnungen.berechne_potenz(zahlen, operatoren)
     
     while "*" in operatoren or "/" in operatoren:
-        rechnungen.dividierenundmultiplizieren(zahlen, operatoren)
+        rechnungen.berechne_dividierenundmultiplizieren(zahlen, operatoren)
 
     while len(operatoren) > 0:
-        rechnungen.plusminus(zahlen, operatoren)
+        rechnungen.berechne_plusminus(zahlen, operatoren)
 
     return zahlen[0]    
     
