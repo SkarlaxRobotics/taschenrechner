@@ -34,7 +34,7 @@
           <input type='button' value='3' name='3' onclick='setFormValue("3")'id="3" name="3" />
         </p>
         <p>
-          <input type='button' value=' NO ' id="operator" name="operator" onclick='setFormValue("")'/>
+          <input type='button' value='C' name='C' onclick='clearFields()' id="C"/>
           <input type='button' value='x' id="operator" name="operator" onclick='setFormValue(" * ")'/>
           <input type='button' value='4' name='4' onclick='setFormValue("4")' id="4"name="4"/>
           <input type='button' value='5' name='5' onclick='setFormValue("5")' id="5" name="5"/>
@@ -51,15 +51,14 @@
         <p>
           <input type='button' value='%' id="operator" name="operator" onclick='setFormValue(" % ")'/>
           <input type='button' value='+' id="operator" name="operator" onclick='setFormValue(" + ")'/>  
-          <input type='button' value='C' name='C' onclick='clearFields()' id="C"/>
+          <input type='button' value='<-' name='<-' onclick='deleteLast()' id="<-"/>
           <input type='button' value='0' name='0' onclick='setFormValue("0")' id="0" name="0"/>
           <input class="file_submit" type="Submit"  value='=' name='enter'/>
         </p>
-        <p>
+        <p align="right">
           <input type='button' value='(' id="operator" name="operator" onclick='setFormValue(" ( ")'/>
-          <input type='button' value=')' id="operator" name="operator" onclick='setFormValue(" ) ")'/>
+          <input type='button' value=')' id="operator" name="operator" onclick='setFormValue(")")'/>
           <input type='button' value='.' name='.' onclick='setFormValue(".")' id="."/>
-          <input type='button' value='<-' name='<-' onclick='deleteLast()' id="<-"/>
         </p>
       </form>
 
