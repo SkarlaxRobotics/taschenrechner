@@ -89,23 +89,23 @@ def result(debug=False):
     if debug: print("Ergebnis: ", ergebnis); print("Digit: ", digit)
     
     # getting max previous number
-    max_number = database.getMaxNumber()
+    max_number = db.getMaxNumber()
     if debug: print(max_number[0])
     a_max_number = int(sum(max_number[0])) if max_number[0] is not None else 0
 
     # verlauf erstellen
-    database.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
+    db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
 
     last_ergebnis = ergebnis if ergebnis != "Mathematischer Fehler" and ergebnis != "Bitte Eingabe" else "0"
     if debug: print(last_ergebnis)
 
-    return render_template("index.html", value=ergebnis, history=reversed(database.readFromTable("*")), last_ergebnis=last_ergebnis)
+    return render_template("index.html", value=ergebnis, history=reversed(db.readFromTable("*")), last_ergebnis=last_ergebnis)
 
 
 @app.route("/clear",methods = ['POST', 'GET'])
 def clear():
-    database.deleteAllEntries(True)
-    return render_template("index.html", history=reversed(database.readFromTable("*")))
+    db.deleteAllEntries(True)
+    return render_template("index.html", history=reversed(db.readFromTable("*")))
 
 
 if __name__ == '__main__':
