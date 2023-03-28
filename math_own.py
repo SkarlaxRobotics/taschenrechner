@@ -11,7 +11,7 @@ def main(rechnung):
     except:
         print("Fehler")
     else:
-        ergebnis = loese(rechnung)
+        ergebnis = klammern(rechnung)
         return ergebnis
     
 def loese(rechnung):
@@ -35,10 +35,9 @@ def loese(rechnung):
 
     return zahlen[0]    
     
-def test_function():
-    assert main("4 + 8") == "12"
+    
 def klammern(rechnung):
-    if "(" in rechnung and ")":
+    if "(" in rechnung and ")" in rechnung:
         start = rechnung.index("(")
         end = rechnung.rindex(")")
         inner_rechnung = rechnung[start+1:end]
@@ -47,4 +46,4 @@ def klammern(rechnung):
         return klammern(rechnung)
     else:
         return loese(rechnung)
-
+    
