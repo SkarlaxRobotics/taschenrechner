@@ -42,15 +42,15 @@ def loese(rechnung):
     return zahlen[0]    
 
 def berechne_klammern(rechnung):
-    if "(" in rechnung and ")" in rechnung:
+    if rechnung.count("(")<rechnung.count(")") or rechnung.count("(")>rechnung.count(")"):
+        return "Syntax Fehler"
+    elif "(" in rechnung and ")" in rechnung:
         start = rechnung.index("(")
         end = rechnung.rindex(")")
         inner_rechnung = rechnung[start+1:end]
         result = berechne_klammern(inner_rechnung)
         rechnung = rechnung[:start] + str(result) + rechnung[end+1:]
         return berechne_klammern(rechnung)
-    elif rechnung.count("(")<rechnung.count(")") or rechnung.count("(")>rechnung.count(")"):
-        return "Syntax Fehler"
     else:
         return loese(rechnung)
 
