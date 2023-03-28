@@ -5,7 +5,7 @@ class split:
         zahlen = []
         operatoren = []
         zahl = ""
-        o = ["+","-","*","/","^", "!"]
+        o = ["+","-","*","/","^", "!", "%"]
         x=True
         y=False
         n="%s" % math.pi 
