@@ -6,13 +6,8 @@ from split import *
 def main(rechnung):
     if not rechnung:
         return "Bitte Eingabe" 
-    try:
-        berechne_klammern(rechnung)
-    except:
-        print("Fehler")
-    else:
-        ergebnis = berechne_klammern(rechnung)
-        return ergebnis
+    ergebnis=berechne_klammern(rechnung)
+    return ergebnis
 
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
@@ -22,7 +17,10 @@ def loese(rechnung):
         zahlen, operatoren = split.split_rechnung(rechnung)
 
     while "!" in operatoren:
-        rechnungen.berechne_fakultaet(rechnung, zahlen, operatoren)
+        if rechnungen.berechne_fakultaet(rechnung, zahlen, operatoren)=="Mathematischer Fehler":
+            return "Mathematischer Fehler"
+        else:
+            rechnungen.berechne_fakultaet(rechnung, zahlen, operatoren)
 
     while "%" in operatoren:
         rechnungen.berechne_prozent(zahlen, operatoren)
@@ -31,7 +29,10 @@ def loese(rechnung):
         rechnungen.berechne_potenz(zahlen, operatoren)
     
     while "*" in operatoren or "/" in operatoren:
-        rechnungen.berechne_dividierenundmultiplizieren(zahlen, operatoren)
+        if rechnungen.berechne_dividierenundmultiplizieren(zahlen, operatoren)=="Mathematischer Fehler":
+            return "Mathematischer Fehler"
+        else:
+            rechnungen.berechne_dividierenundmultiplizieren(zahlen, operatoren)
 
     while len(operatoren) > 0:
         rechnungen.berechne_plusminus(zahlen, operatoren)

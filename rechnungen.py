@@ -28,7 +28,7 @@ class rechnungen:
                 del operatoren[i]
                 break
 
-    def berechne_dividierenundmultiplizieren (zahlen, operatoren):
+    def berechne_dividierenundmultiplizieren (zahlen, operatoren): 
         for i, op in enumerate(operatoren):
                 if op == "*":
                     zahlen[i] = zahlen[i] * zahlen[i+1]
