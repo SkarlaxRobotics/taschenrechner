@@ -1,5 +1,7 @@
 from math_own import *
 
+
+# execute with "python3 -m pytest" in directory of this file 
 def testNichts():
     result = main("")
     assert result == "Bitte Eingabe"
@@ -40,3 +42,7 @@ def testRoot():
 def testPowerofX():
     result = main("8 ^ 8")
     assert result == 16777216.0
+    
+def testProcent():
+    result = main("74 % * 854 ")
+    assert result == 631.96
