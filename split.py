@@ -6,7 +6,6 @@ class split:
         operatoren = []
         zahl = ""
         o = ["+","-","*","/","^", "!"]
-        z = ["1","2","3","4","5", "6", "7", "8", "9", "0"]
         x=True
         y=False
         n="%s" % math.pi 
@@ -14,10 +13,6 @@ class split:
         for i in rechnung:
             if rechnung[-2] in o and rechnung[-2]!="!":
                 return "Syntax Error"
-            elif i == " " and rechnung[rechnung.index(i)-2] in z:
-                zahlen.append(float(zahl))
-                operatoren.append("*")
-                zahl = ""
             elif i.isdigit() or i == ".":
                 zahl += i 
             elif i=="n":
@@ -31,7 +26,7 @@ class split:
             elif (i =="-" or i=="+" )and x==True:
                 zahl += i
             elif i in o:
-                if zahl and zahl!="":
+                if zahl:
                     zahlen.append(float(zahl))
                     zahl = ""
                 operatoren.append(i)
