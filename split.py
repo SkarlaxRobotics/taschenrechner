@@ -14,7 +14,10 @@ class split:
             if rechnung[-2] in o and rechnung[-2]!="!":
                 return "Syntax Error"
             elif i.isdigit() or i == ".":
-                zahl += i 
+                if rechnung[rechnung.index(i)-2]==" ":
+                    zahlen.append(float(zahl))
+                else:
+                    zahl += i 
             elif i=="n":
                 if rechnung[rechnung.index(i)-2] in o:
                     zahl += n
