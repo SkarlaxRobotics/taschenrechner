@@ -38,7 +38,7 @@ def result(debug=False):
     if digit == "1 + 1": db.insertToTable(number=int(a_max_number+1), rechnung="Nutzer", ergebnis="doof")
     else: db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
 
-    last_ergebnis = ergebnis if ergebnis != "Mathematischer Fehler" and ergebnis != "Bitte Eingabe" and ergebnis != "Fehler" else "0"
+    last_ergebnis = ergebnis if not ' ' in ergebnis else "0"
     if debug: print(last_ergebnis)
 
     return render_template("index.html", value=ergebnis, history=reversed(db.readFromTable("*")), last_ergebnis=last_ergebnis)
