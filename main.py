@@ -90,8 +90,8 @@ def result(debug=False):
     
     # getting max previous number
     max_number = db.getMaxNumber()
-    if debug: print(max_number[0])
-    a_max_number = int(sum(max_number[0])) if max_number[0] is not None else 0
+    if debug: print(max_number)
+    a_max_number = int(sum(max_number)) if max_number is not None else 0
 
     # verlauf erstellen
     db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
