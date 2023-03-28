@@ -28,10 +28,10 @@ def loese(rechnung):
         rechnungen.berechne_sinus(zahlen, operatoren)
 
     while "cos" in operatoren:
-        rechnungen.berechne_sinus(zahlen, operatoren)
+        rechnungen.berechne_cosinus(zahlen, operatoren)
 
     while "tan" in operatoren:
-        rechnungen.berechne_sinus(zahlen, operatoren)
+        rechnungen.berechne_tangens(zahlen, operatoren)
 
     while "%" in operatoren:
         rechnungen.berechne_prozent(zahlen, operatoren)
