@@ -13,7 +13,7 @@ def main(rechnung):
     else:
         ergebnis = berechne_klammern(rechnung)
         return ergebnis
-    
+
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
         return "Syntax Error"
@@ -37,8 +37,7 @@ def loese(rechnung):
         rechnungen.berechne_plusminus(zahlen, operatoren)
 
     return zahlen[0]    
-    
-    
+
 def berechne_klammern(rechnung):
     if "(" in rechnung and ")" in rechnung:
         start = rechnung.index("(")
@@ -49,4 +48,4 @@ def berechne_klammern(rechnung):
         return berechne_klammern(rechnung)
     else:
         return loese(rechnung)
-    
+
