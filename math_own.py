@@ -17,10 +17,13 @@ def main(rechnung):
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
         return "Syntax Error"
+    
     else:
         zahlen, operatoren = split.split_rechnung(rechnung)
+
     while "!" in operatoren:
         rechnungen.berechne_fakultaet(rechnung, zahlen, operatoren)
+
     while "%" in operatoren:
         rechnungen.berechne_prozent(zahlen, operatoren)
 
