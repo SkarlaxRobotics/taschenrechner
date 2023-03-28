@@ -5,45 +5,50 @@ import sqlite3
 
 
 class database:
-    def open_connection(self):
+    def openConnection(self):
         global conn
         conn = sqlite3.connect(self.filename)
         global cursor
         cursor = conn.cursor() 
 
-    def close_connection(self):
+    def closeConnection(self):
         cursor.close()
         conn.close()
 
-    def insert_to_table(self): pass
+    def insertToTable(self, number, rechnung, ergebnis):
+        database.openConnection()
+        cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(number+1), rechnung, ergebnis))
+        conn.commit()
+        database.closeConnection()
     
-    def delete_all_entries(self):
-        database.open_connection()
+    def deleteAllEntries(self, new_entry):
+        database.openConnection()
         cursor.execute('DELETE FROM history')
         conn.commit()
-        database.close_connection()
+        if new_entry: cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")'); conn.commit()
+        database.closeConnection()
 
     def readFromTable(self, number: str):
-        database.open_connection()
+        database.openConnection()
         if number == "*":
             cursor.execute('SELECT * FROM history')
         else:
             cursor.execute('SELECT {number} FROM history')
         ausgabe = cursor.fetchone()
-        database.close_connection
+        database.closeConnection
         return ausgabe
 
     def getMaxNumber(self):
-        database.open_connection()
+        database.openConnection()
         cursor.execute('SELECT MAX(number) FROM history')
-        database.close_connection()
+        database.closeConnection()
         max = cursor.fetchone()
         global max_number
         max_number = int(max[0]) if max and max[0] is not None else 0
     
     def __init__(self, filename, table, debug=False) -> None:
         self.filename = filename
-        database.open_connection()
+        database.openConnection()
         cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
         result = cursor.fetchone()
         if result and debug: print("Datenbank existiert bereits. fahre fort")
@@ -56,7 +61,7 @@ class database:
         if not no_entry_yet:
             cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
             conn.commit()
-        database.close_connection()
+        database.closeConnection()
 
 
 
@@ -72,15 +77,16 @@ def index():
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result(debug=False):
-    
     output = request.form.to_dict()
     
     if debug: print(output)
     
     digit = str(output["digit"])
+    
+    # Berechnung:
     ergebnis = math_own.main(digit)
     
-    if debug: print("Ergebnis:", ergebnis); print(digit)
+    if debug: print("Ergebnis: ", ergebnis); print("Digit: ", digit)
     
     # getting max previous number
     max_number = database.getMaxNumber()
@@ -88,9 +94,8 @@ def result(debug=False):
     a_max_number = int(sum(max_number[0])) if max_number[0] is not None else 0
 
     # verlauf erstellen
-    cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(a_max_number+1), digit, ergebnis))
-    conn.commit()
-    
+    database.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
+
     last_ergebnis = ergebnis if ergebnis != "Mathematischer Fehler" and ergebnis != "Bitte Eingabe" else "0"
     if debug: print(last_ergebnis)
 
@@ -99,11 +104,7 @@ def result(debug=False):
 
 @app.route("/clear",methods = ['POST', 'GET'])
 def clear():
-    database.delete_all_entries()
-    cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
-    conn.commit()
-    cursor.execute('SELECT * FROM history')
-    cursor.fetchall()
+    database.deleteAllEntries(True)
     return render_template("index.html", history=reversed(database.readFromTable("*")))
 
 
