@@ -59,3 +59,16 @@ def testPowerofX():
 def testProcent():
     result = main("74 % * 854 ")
     assert result == 631.96
+    
+
+def testSinus():
+    result = main(" sin 30")
+    assert result == 0.5
+
+def testCosinus():
+    result = main(" cos 60")
+    assert result == 0.5
+
+def testTangent():
+    result = main(" tan 45")
+    assert result == 1
