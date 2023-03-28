@@ -16,6 +16,9 @@ class split:
             elif i.isdigit() or i == ".":
                 if rechnung[rechnung.index(i)-2]==" ":
                     zahlen.append(float(zahl))
+                    operatoren.append("*")
+                    zahl = ""
+                    zahl += i 
                 else:
                     zahl += i 
             elif i=="n":
