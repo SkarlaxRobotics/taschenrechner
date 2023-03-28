@@ -31,7 +31,7 @@ class split:
             elif (i =="-" or i=="+" )and x==True:
                 zahl += i
             elif i in o:
-                if zahl:
+                if zahl and zahl!="":
                     zahlen.append(float(zahl))
                     zahl = ""
                 operatoren.append(i)
