@@ -3,43 +3,39 @@ import math
 class rechnungen:
     def berechne_fakultaet (rechnung, zahlen, operatoren):
         for i in rechnung:
-                if rechnung[rechnung.index(i)-2] == "-":
-                    return "Mathematischer Fehler"
+            if rechnung[rechnung.index(i)-2] == "-":
+                return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
-                if op == "!":
-                    # if i == "0":
-                    #     zahlen[i]=1
-                    #     del operatoren[i]
-                    # else:
-                    zahlen[i]=math.factorial(int(zahlen[i]))
-                    del operatoren[i]
+            if op == "!":
+                zahlen[i]=math.factorial(int(zahlen[i]))
+                del operatoren[i]
 
     def berechne_prozent (zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "%":
-                    zahlen[i]=zahlen[i]/100
-                    del operatoren[i]
+            if op == "%":
+                zahlen[i]=zahlen[i]/100
+                del operatoren[i]
     
     def berechne_sinus (zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "sin":
-                    zahlen[i]=round(math.sin(math.radians(zahlen[i])),3)
-                    del operatoren[i]
-                    print (zahlen[i])
+            if op == "sin":
+                zahlen[i]=round(math.sin(math.radians(zahlen[i])),3)
+                del operatoren[i]
+                print (zahlen[i])
     
     def berechne_cosinus (zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "cos":
-                    zahlen[i]=round(math.cos(math.radians(zahlen[i])),3)
-                    del operatoren[i]
-                    print (zahlen[i])
+            if op == "cos":
+                zahlen[i]=round(math.cos(math.radians(zahlen[i])),3)
+                del operatoren[i]
+                print (zahlen[i])
 
     def berechne_tangens (zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "tan":
-                    zahlen[i]=round(math.tan(math.radians(zahlen[i])),3)
-                    del operatoren[i]
-                    print (zahlen[i])
+            if op == "tan":
+                zahlen[i]=round(math.tan(math.radians(zahlen[i])),3)
+                del operatoren[i]
+                print (zahlen[i])
 
     def berechne_potenz(zahlen, operatoren):
         for i, op in enumerate(operatoren):
@@ -51,18 +47,18 @@ class rechnungen:
 
     def berechne_dividierenundmultiplizieren (zahlen, operatoren): 
         for i, op in enumerate(operatoren):
-                if op == "*":
-                    zahlen[i] = zahlen[i] * zahlen[i+1]
-                    del zahlen[i+1]
-                    del operatoren[i]
-                    break
-                elif op == "/":
-                    if zahlen[i+1] == 0:
-                        return "Mathematischer Fehler"
-                    zahlen[i] = zahlen[i] / zahlen[i+1]
-                    del zahlen[i+1]
-                    del operatoren[i]
-                    break
+            if op == "*":
+                zahlen[i] = zahlen[i] * zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
+            elif op == "/":
+                if zahlen[i+1] == 0:
+                    return "Mathematischer Fehler"
+                zahlen[i] = zahlen[i] / zahlen[i+1]
+                del zahlen[i+1]
+                del operatoren[i]
+                break
 
     def berechne_plusminus (zahlen, operatoren):
         op = operatoren.pop(0)
