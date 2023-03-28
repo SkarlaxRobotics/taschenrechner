@@ -22,7 +22,7 @@ class rechnungen:
     
     def berechne_sinus (zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "sin":
+                if op == "s":
                     zahlen[i]=math.sin(zahlen[i])
                     del operatoren[i]
 
