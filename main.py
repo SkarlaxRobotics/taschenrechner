@@ -5,10 +5,9 @@ import sqlite3
 
 
 class database:
-        
     def __init__(self, filename, table, debug=False) -> None:
         self.filename = filename
-        database.openConnection()
+        db.openConnection()
         cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
         result = cursor.fetchone()
         if result and debug: print("Datenbank existiert bereits. fahre fort")
@@ -21,7 +20,7 @@ class database:
         if not no_entry_yet:
             cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")')
             conn.commit()
-        database.closeConnection()
+        db.closeConnection()
 
     def openConnection(self):
         global conn
@@ -34,32 +33,32 @@ class database:
         conn.close()
 
     def insertToTable(self, number, rechnung, ergebnis):
-        database.openConnection()
+        db.openConnection()
         cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(number+1), rechnung, ergebnis))
         conn.commit()
-        database.closeConnection()
+        db.closeConnection()
     
     def deleteAllEntries(self, new_entry):
-        database.openConnection()
+        db.openConnection()
         cursor.execute('DELETE FROM history')
         conn.commit()
         if new_entry: cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")'); conn.commit()
-        database.closeConnection()
+        db.closeConnection()
 
     def readFromTable(self, number: str):
-        database.openConnection()
+        db.openConnection()
         if number == "*":
             cursor.execute('SELECT * FROM history')
         else:
             cursor.execute('SELECT {number} FROM history')
         ausgabe = cursor.fetchone()
-        database.closeConnection
+        db.closeConnection
         return ausgabe
 
     def getMaxNumber(self):
-        database.openConnection()
+        db.openConnection()
         cursor.execute('SELECT MAX(number) FROM history')
-        database.closeConnection()
+        db.closeConnection()
         max = cursor.fetchone()
         global max_number
         max_number = int(max[0]) if max and max[0] is not None else 0
