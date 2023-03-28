@@ -7,7 +7,6 @@ body { 	background-color: #80A1D4;
     padding: 0;
     display: inline-block;
     line-height:5px;
-    height: 95vh;
     text-align: center;
     width: 30vw;
     border: 5px solid black;
@@ -68,7 +67,6 @@ input:hover{
     background-color: grey;
 }
 
-
 #digit{
     background-color: #ffffff;
     height: fit-content;
@@ -91,8 +89,3 @@ input:hover{
         height: 10vh;
     }
 }
-
-.invisible{
-    display: none;
-}
-
