@@ -51,7 +51,7 @@ class database:
             cursor.execute('SELECT * FROM history')
         else:
             cursor.execute('SELECT {number} FROM history')
-        ausgabe = cursor.fetchone()
+        ausgabe = cursor.fetchall()
         self.closeConnection
         return ausgabe
 
