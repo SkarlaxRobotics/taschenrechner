@@ -33,33 +33,33 @@ class database:
         conn.close()
 
     def insertToTable(self, number, rechnung, ergebnis):
-        db.openConnection()
+        self.openConnection()
         cursor.execute('INSERT INTO history VALUES (?, ?, ?)', (int(number+1), rechnung, ergebnis))
         conn.commit()
-        db.closeConnection()
+        self.closeConnection()
     
     def deleteAllEntries(self, new_entry):
-        db.openConnection()
+        self.openConnection()
         cursor.execute('DELETE FROM history')
         conn.commit()
         if new_entry: cursor.execute('INSERT INTO history VALUES (1, "new history", "empty")'); conn.commit()
-        db.closeConnection()
+        self.closeConnection()
 
     def readFromTable(self, number: str):
-        db.openConnection()
+        self.openConnection()
         if number == "*":
             cursor.execute('SELECT * FROM history')
         else:
             cursor.execute('SELECT {number} FROM history')
         ausgabe = cursor.fetchone()
-        db.closeConnection
+        self.closeConnection
         return ausgabe
 
     def getMaxNumber(self):
-        db.openConnection()
+        self.openConnection()
         cursor.execute('SELECT MAX(number) FROM history')
-        db.closeConnection()
         max = cursor.fetchone()
+        self.closeConnection()
         global max_number
         max_number = int(max[0]) if max and max[0] is not None else 0
 
