@@ -60,7 +60,8 @@ class database:
         cursor.execute('SELECT MAX(number) FROM history')
         max = cursor.fetchall()
         self.closeConnection()
-        return int(max[0]) if max and max[0] is not None else 0
+        read =  int(sum(max[0])) if max and max[0] is not None else 0
+        return read
 
 
 
