@@ -5,11 +5,11 @@ from split import *
 def main(rechnung):
     if not rechnung:
         return "Bitte Eingabe" 
-    try:
-        ergebnis=berechne_klammern(rechnung)
-        return ergebnis
-    except:
-        return "Fehler"
+    # try:
+    ergebnis=berechne_klammern(rechnung)
+    return ergebnis
+    # except:
+    #     return "Fehler"
 
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
