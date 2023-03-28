@@ -19,7 +19,7 @@ class split:
                     zahl = ""
             elif i.isdigit() or i == ".":
                 zahl += i 
-            elif i=="n" and rechnung[rechnung.index(i)-1]!= ("i"or"a"):
+            elif i=="n" and rechnung[rechnung.index(i)-1]!= "i" and rechnung[rechnung.index(i)-1]!= "a":
                 if rechnung[rechnung.index(i)-2] in o:
                     zahl += n
                 else:
