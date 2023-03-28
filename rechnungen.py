@@ -22,8 +22,20 @@ class rechnungen:
     
     def berechne_sinus (zahlen, operatoren):
         for i, op in enumerate(operatoren):
-                if op == "s":
+                if op == "sin":
                     zahlen[i]=math.sin(zahlen[i])
+                    del operatoren[i]
+    
+    def berechne_cosinus (zahlen, operatoren):
+        for i, op in enumerate(operatoren):
+                if op == "cos":
+                    zahlen[i]=math.cos(zahlen[i])
+                    del operatoren[i]
+
+    def berechne_tangens (zahlen, operatoren):
+        for i, op in enumerate(operatoren):
+                if op == "tan":
+                    zahlen[i]=math.tan(zahlen[i])
                     del operatoren[i]
 
     def berechne_potenz(zahlen, operatoren):
