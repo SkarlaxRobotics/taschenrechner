@@ -1,7 +1,7 @@
 import math
 
 class rechnungen:
-    def fakultaet (rechnung, zahlen, operatoren):
+    def berechne_fakultaet (rechnung, zahlen, operatoren):
         for i in rechnung:
                 if rechnung[rechnung.index(i)-2] == "-":
                     return "Mathematischer Fehler"
@@ -14,13 +14,13 @@ class rechnungen:
                             zahlen[i]=math.factorial(int(zahlen[i]))
                             del operatoren[i]
 
-    def prozent (zahlen, operatoren):
+    def berechne_prozent (zahlen, operatoren):
         for i, op in enumerate(operatoren):
                 if op == "%":
                     zahlen[i]=zahlen[i]/100
                     del operatoren[i]
 
-    def potenz(zahlen, operatoren):
+    def berechne_potenz(zahlen, operatoren):
         for i, op in enumerate(operatoren):
             if op == "^":
                 zahlen[i] = zahlen[i] ** zahlen[i+1]
@@ -28,7 +28,7 @@ class rechnungen:
                 del operatoren[i]
                 break
 
-    def dividierenundmultiplizieren (zahlen, operatoren):
+    def berechne_dividierenundmultiplizieren (zahlen, operatoren):
         for i, op in enumerate(operatoren):
                 if op == "*":
                     zahlen[i] = zahlen[i] * zahlen[i+1]
@@ -43,7 +43,7 @@ class rechnungen:
                     del operatoren[i]
                     break
             
-    def plusminus (zahlen, operatoren):
+    def berechne_plusminus (zahlen, operatoren):
         op = operatoren.pop(0)
         zahl = zahlen.pop(0)
         if op == "+":
