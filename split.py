@@ -5,7 +5,7 @@ class split:
         zahlen = []
         operatoren = []
         zahl = ""
-        o = ["+","-","*","/","^", "!", "%", "s", "c", "t"]
+        o = ["+","-","*","/","^", "!", "%", "cos", "sin", "tan"]
         x=True
         y=False
         n="%s" % math.pi 
@@ -19,7 +19,7 @@ class split:
                     zahl = ""
             elif i.isdigit() or i == ".":
                 zahl += i 
-            elif i=="n":
+            elif i=="n" and rechnung[rechnung.index(i)-1]!= ("i"or"a"):
                 if rechnung[rechnung.index(i)-2] in o:
                     zahl += n
                 else:
