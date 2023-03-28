@@ -10,7 +10,7 @@ def main(rechnung):
             ergebnis=berechne_klammern(rechnung)
             return ergebnis
         except:
-            return "Fehler! Bist du doof!"
+            return "Fehler! Bist du doof?!"
 
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
