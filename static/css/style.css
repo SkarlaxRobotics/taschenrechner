@@ -77,7 +77,7 @@ input:hover{
 }
 
 .left{
-    display: left;
+    float: left;
 }
 
 @media only screen and (max-width: 800px) {
