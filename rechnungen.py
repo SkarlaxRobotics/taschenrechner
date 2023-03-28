@@ -42,7 +42,7 @@ class rechnungen:
                     del zahlen[i+1]
                     del operatoren[i]
                     break
-            
+
     def berechne_plusminus (zahlen, operatoren):
         op = operatoren.pop(0)
         zahl = zahlen.pop(0)
