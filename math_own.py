@@ -6,8 +6,11 @@ from split import *
 def main(rechnung):
     if not rechnung:
         return "Bitte Eingabe" 
-    ergebnis=berechne_klammern(rechnung)
-    return ergebnis
+    try:
+        ergebnis=berechne_klammern(rechnung)
+        return ergebnis
+    except:
+        return "Fehler"
 
 def loese(rechnung):
     if split.split_rechnung(rechnung)=="Syntax Error":
@@ -47,6 +50,8 @@ def berechne_klammern(rechnung):
         result = berechne_klammern(inner_rechnung)
         rechnung = rechnung[:start] + str(result) + rechnung[end+1:]
         return berechne_klammern(rechnung)
+    elif rechnung.count("(")<rechnung.count(")") or rechnung.count("(")>rechnung.count(")"):
+        return "Syntax Fehler"
     else:
         return loese(rechnung)
 
