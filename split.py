@@ -29,6 +29,21 @@ class split:
                     zahl += n
             elif (i =="-" or i=="+" )and x==True:
                 zahl += i
+            elif i=="s" and rechnung[rechnung.index(i)+1]=="i" and rechnung[rechnung.index(i)+1]=="n":
+                if zahl:
+                    zahlen.append(float(zahl))
+                    zahl = ""
+                operatoren.append("sin")
+            elif i=="c" and rechnung[rechnung.index(i)+1]=="o" and rechnung[rechnung.index(i)+1]=="s":
+                if zahl:
+                    zahlen.append(float(zahl))
+                    zahl = ""
+                operatoren.append("cos")
+            elif i=="t" and rechnung[rechnung.index(i)+1]=="a" and rechnung[rechnung.index(i)+1]=="n":
+                if zahl:
+                    zahlen.append(float(zahl))
+                    zahl = ""
+                operatoren.append("tan")
             elif i in o:
                 if zahl:
                     zahlen.append(float(zahl))
