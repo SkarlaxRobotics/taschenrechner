@@ -48,8 +48,9 @@ def result(debug=False):
 
 @app.route("/clear",methods = ['POST', 'GET'])
 def clear():
-    db.deleteAllEntries(True)
-    return render_template("index.html", history=reversed(db.readFromTable("*")))
+    try: db.deleteAllEntries(True); return render_template("index.html", history=reversed(db.readFromTable("*")))
+    except: return render_template("index.html", value="Unbekannter Fehler", history=reversed(db.readFromTable("*")), last_ergebnis="0")
+    
 
 
 if __name__ == '__main__':
