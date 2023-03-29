@@ -16,7 +16,7 @@ def index():
 
 
 @app.route("/result",methods = ['POST', 'GET'])
-def result(debug_in, debug=False):
+def result(debug_in=False, debug=False):
     try:
         if not debug_in:
             output = request.form.to_dict()
