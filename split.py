@@ -13,7 +13,7 @@ class split:
         for i in rechnung:
             if rechnung[-2] in o and rechnung[-2]!="!":
                 return "Syntax Error"
-            if i==" " and rechnung[rechnung.index(i)-1].isdigit() and rechnung[rechnung.index(i)+1].isdigit():
+            if i==" " and rechnung[rechnung.index(i)-1].isdigit() and rechnung[rechnung.index(i)+1].isdigit() and zahl!="":
                     zahlen.append(float(zahl))
                     operatoren.append("*")
                     zahl = ""
