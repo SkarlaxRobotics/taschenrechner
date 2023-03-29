@@ -78,6 +78,6 @@ def testTangent():
     
 # main file tests
 def testOverflow():
-    result = result("400 !", debug=False)
-    assert result == 1
+    output = result("400 !", debug=False)
+    assert output == 1
     
