@@ -2,11 +2,10 @@ import flask
 from flask import Flask, render_template, request
 import math_own
 import sqlite3
-from database import *
+import database
 
 
-
-db = database("history_calc.db", "history")
+db = database.database("history_calc.db", "history")
 
 app = Flask(__name__)
 
@@ -21,9 +20,9 @@ def result(debug_in, debug=False):
     try:
         if not debug_in:
             output = request.form.to_dict()
-    
+
             if debug: print(output)
-    
+
             digit = str(output["digit"])
         if debug_in:
             digit = debug_in
@@ -48,7 +47,6 @@ def result(debug_in, debug=False):
             if not debug_in: return render_template("index.html", value="Unbekannter Fehler", history=reversed(db.readFromTable("*")), last_ergebnis="0")
             elif debug_in: return "Unbekannter Fehler"
             else: pass
-    
 
 
 @app.route("/clear",methods = ['POST', 'GET'])
