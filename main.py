@@ -18,35 +18,36 @@ def index():
 
 @app.route("/result",methods = ['POST', 'GET'])
 def result(debug_in, debug=False):
-    try:
-        if not debug_in:
+    if not debug_in:
+        try:
             output = request.form.to_dict()
     
             if debug: print(output)
     
             digit = str(output["digit"])
-        elif debug_in:
+
+            if debug: print("Ergebnis: ", ergebnis); print("Digit: ", digit)
+            # getting max previous number
+            max_number = db.getMaxNumber()
+            if debug: print(max_number)
+            a_max_number = max_number if max_number is not None else 0
+
+            # verlauf erstellen
+            if digit == "1 + 1": db.insertToTable(number=int(a_max_number+1), rechnung="Nutzer", ergebnis="doof")
+            else: db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
+
+            last_ergebnis = "0" if type == str and ' ' in ergebnis else ergebnis
+            if debug: print(last_ergebnis)
+
+            return render_template("index.html", value=ergebnis, history=reversed(db.readFromTable("*")), last_ergebnis=last_ergebnis)
+        except:
+            return render_template("index.html", value="Unbekannter Fehler", history=reversed(db.readFromTable("*")), last_ergebnis="0")
+    
+    if debug_in:
             digit = debug_in
-        # Berechnung:
-        ergebnis = math_own.main(digit)
-
-        if debug: print("Ergebnis: ", ergebnis); print("Digit: ", digit)
-        # getting max previous number
-        max_number = db.getMaxNumber()
-        if debug: print(max_number)
-        a_max_number = max_number if max_number is not None else 0
-
-        # verlauf erstellen
-        if digit == "1 + 1": db.insertToTable(number=int(a_max_number+1), rechnung="Nutzer", ergebnis="doof")
-        else: db.insertToTable(number=int(a_max_number+1), rechnung=digit, ergebnis=ergebnis)
-
-        last_ergebnis = "0" if type == str and ' ' in ergebnis else ergebnis
-        if debug: print(last_ergebnis)
-
-        return render_template("index.html", value=ergebnis, history=reversed(db.readFromTable("*")), last_ergebnis=last_ergebnis)
-    except:
-        return render_template("index.html", value="Unbekannter Fehler", history=reversed(db.readFromTable("*")), last_ergebnis="0")
-
+            # Berechnung:
+            ergebnis = math_own.main(digit)
+            return ergebnis
 
 @app.route("/clear",methods = ['POST', 'GET'])
 def clear():
