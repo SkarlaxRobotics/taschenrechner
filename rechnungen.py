@@ -7,7 +7,7 @@ class rechnungen:
                 return "Mathematischer Fehler"
         for i, op in enumerate(operatoren):
             if op == "!":
-                zahlen[i]=math.factorial(float(zahlen[i]))
+                zahlen[i]=math.factorial(int(zahlen[i]))
                 del operatoren[i]
 
     def berechne_prozent (zahlen, operatoren):
