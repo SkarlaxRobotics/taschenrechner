@@ -17,14 +17,16 @@ def index():
 
 
 @app.route("/result",methods = ['POST', 'GET'])
-def result(debug=False):
+def result(debug_in, debug=False):
     try:
-        output = request.form.to_dict()
+        if not debug_in:
+            output = request.form.to_dict()
     
-        if debug: print(output)
+            if debug: print(output)
     
-        digit = str(output["digit"])
-
+            digit = str(output["digit"])
+        elif debug_in:
+            digit = debug_in
         # Berechnung:
         ergebnis = math_own.main(digit)
 

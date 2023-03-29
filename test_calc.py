@@ -1,7 +1,9 @@
 from math_own import *
-
+from main import *
 
 # execute with "python3 -m pytest" in directory of this file 
+
+# math file tests
 def testNichts():
     result = main("")
     assert result == "Bitte Eingabe"
@@ -72,3 +74,10 @@ def testCosinus():
 def testTangent():
     result = main(" tan 45")
     assert result == 1
+    
+    
+# main file tests
+def testOverflow():
+    result = result("400 !", debug=False)
+    assert result == 1
+    
