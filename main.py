@@ -46,7 +46,7 @@ def result(debug_in, debug=False):
         if debug_in: return ergebnis
     except:
             if not debug_in: return render_template("index.html", value="Unbekannter Fehler", history=reversed(db.readFromTable("*")), last_ergebnis="0")
-            elif debug_in: return ergebnis
+            elif debug_in: return "Unbekannter Fehler"
             else: pass
     
 
