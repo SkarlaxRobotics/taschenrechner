@@ -79,5 +79,5 @@ def testTangent():
 # main file tests
 def testOverflow():
     output = result("400 !", debug=False)
-    assert output == 1
+    assert output == "Unbekannter Fehler"
     
