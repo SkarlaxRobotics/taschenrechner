@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template("index.html", history=reversed(db.readFromTable(number="*")), ergebnis="0")
+    return render_template("index.html", history=reversed(db.readFromTable(number="*")))#, ergebnis="0")
 
 
 @app.route("/result",methods = ['POST', 'GET'])
