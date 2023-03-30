@@ -3,8 +3,9 @@ import sqlite3
 class database:
     def __init__(self, filename, table, debug=False) -> None:
         self.filename = filename
+        self.table = table
         self.openConnection()
-        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table}'")
+        cursor.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name='{self.table}'")
         result = cursor.fetchone()
         if result: print("Datenbank existiert bereits. fahre fort")
         else:
