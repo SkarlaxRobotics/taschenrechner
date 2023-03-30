@@ -1,7 +1,7 @@
 import math
 
 class Trig:
-    def __init__(self, op, zahlen):
+    def __init__(self, op, zahlen) -> None:
         self.op = op
         self.zahlen = zahlen
         
