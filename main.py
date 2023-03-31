@@ -9,7 +9,7 @@ db = database.database("history_calc.db", "history")
 
 app = Flask(__name__)
 
-
+# test
 @app.route("/", methods=['GET', 'POST'])
 def index():
     return render_template("index.html", history=reversed(db.readFromTable(number="*")), value="0")
