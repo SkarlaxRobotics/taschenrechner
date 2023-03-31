@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class database:
     def __init__(self, filename, table, debug=False) -> None:
         self.filename = filename

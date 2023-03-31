@@ -3,12 +3,13 @@ from rechnungen import *
 from split import *
 from math_own import *
 
-def main(rechnung):
+
+def main(rechnung: str):
     if not rechnung:
         return "Bitte Eingabe" 
     else:
         try:
-            ergebnis= math_own.berechne_klammern(rechnung)
+            ergebnis= berechne_klammern(rechnung)
             return ergebnis
         except:
             return "Fehler! Bist du doof?!"
